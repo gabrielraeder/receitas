@@ -18,19 +18,15 @@ Todo o conteúdo gerado é em **português do Brasil**. Código, scripts, nomes 
 │       ├── pages/          # um quadro nítido por página (já na orientação certa)
 │       ├── zoom/           # recortes ampliados de trechos difíceis
 │       └── transcription.json
-├── scripts/                # scripts auxiliares (JavaScript ou Python)
-├── docs/
-│   ├── index.mdx           # página inicial do livro de receitas
-│   ├── writedocs.json
+├── scripts/                # scripts auxiliares (ver "Notas para os próximos lotes")
+│   └── taxonomy.json       # tabs e seções da navegação (fonte única das categorias)
+├── docs/                   # raiz do site WriteDocs: caminhos da navegação e URLs são relativos a esta pasta
+│   ├── index.mdx           # homepage feita à mão (não é gerada por script)
+│   ├── writedocs.json      # só a chave "navigation" é gerada; o resto (estilos, logo) é manual
 │   ├── images/
 │   ├── receitas/
-│   │   ├── index.mdx       # visão geral por categoria
-│   │   ├── doces/
-│   │   ├── salgados/
-│   │   ├── paes-e-massas/
-│   │   ├── bolos/
-│   │   ├── sobremesas-geladas/
-│   │   └── bebidas/
+│   │   ├── index.mdx       # visão geral: cards por seção, agrupados por tab
+│   │   └── <categoria>/    # uma pasta por seção de scripts/taxonomy.json (bolos/, tortas-doces/, …)
 │   └── tags/               # (opcional) uma página por tag
 └── review/
     └── <video-slug>.md     # relatório de revisão de cada lote
@@ -95,13 +91,16 @@ Para cada receita, defina a categoria (pasta), as tags e os metadados do frontma
 
 - Caminho: `docs/receitas/<categoria>/<slug>.mdx`. O slug é o título em minúsculas, sem acento e com hífens (`bolo-gelado-de-maracuja`).
 - Se o slug já existir (receita repetida em outro vídeo), **não sobrescreva**: compare as versões e registre no relatório.
+- Receita repetida **no mesmo caderno** (ex.: nº 15 e nº 20): publique as duas com slug `-2` e o número no `sidebarTitle`, e registre a comparação no relatório.
 - Siga o template da seção "Template MDX".
 
 ### 6. Atualizar a navegação e os índices
 
-- Adicione as novas páginas à navegação no arquivo de configuração do WriteDocs, agrupadas por categoria e em ordem alfabética dentro de cada grupo.
-- Atualize `docs/receitas/index.mdx` (cards por categoria com a contagem de receitas).
+- A navegação de `docs/writedocs.json` usa **tabs** (Doces, Salgados, Bebidas) e, dentro de cada tab, um grupo por **seção** (= categoria), com as receitas em ordem alfabética. Tabs e seções vêm de `scripts/taxonomy.json`; seção ou tab sem receitas não aparece.
+- Atualize `docs/receitas/index.mdx` (um `## <tab>` por tab e um `<CardGroup cols={2}>` com um card por seção e a contagem).
+- A homepage `docs/index.mdx` é feita à mão: quando entrar seção nova ou mudar a contagem, atualize os cards e os números dela manualmente (e confira que todo `href` aponta para um arquivo que existe).
 - Se houver páginas de tag em `docs/tags/`, atualize as listas.
+- `python scripts/build_docs.py <slug>` faz os passos 5 e 6 (menos a homepage).
 
 ### 7. Revisar e gerar o relatório
 
@@ -119,6 +118,8 @@ Antes de encerrar, confira:
 - [ ] Toda dúvida do `transcription.json` aparece no MDX (componente de aviso) **e** no relatório.
 - [ ] A navegação aponta para arquivos que existem.
 - [ ] Se possível, rode o build local do WriteDocs e corrija os erros.
+
+`python scripts/validate_docs.py <slug>` confere os quatro primeiros itens (e que toda receita está na navegação). O build do WriteDocs é `npx @writedocs/generator validate` e `npx @writedocs/generator dev`, rodados dentro de `docs/`.
 
 ---
 
@@ -174,7 +175,19 @@ Regras:
 - Tags de **restrição** só quando for inequívoco pelos ingredientes. Se houver ingrediente processado com dúvida (ex.: chocolate em pó com glúten), não use a tag.
 - `rapido` = tempo total até 30 min.
 
-Categorias (pastas): `bolos`, `doces`, `sobremesas-geladas`, `paes-e-massas`, `salgados`, `bebidas`. Uma receita pertence a **uma** categoria; as tags cobrem o resto.
+### Categorias (seções) e tabs
+
+Uma receita pertence a **uma** categoria; as tags cobrem o resto. A categoria é a pasta, o valor de `category` no frontmatter e a seção na navegação. Cada categoria pertence a uma tab:
+
+| Tab      | Categorias (pastas)                                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Doces    | `bolos`, `tortas-doces`, `sobremesas-geladas`, `biscoitos`, `docinhos`, `paes-doces`, `recheios-e-coberturas`             |
+| Salgados | `paes-e-massas`, `salgadinhos`, `tortas-salgadas`, `pratos-principais`, `acompanhamentos`                                 |
+| Bebidas  | `bebidas-quentes`, `bebidas-frias`                                                                                        |
+
+- A fonte de verdade é `scripts/taxonomy.json` (rótulos e ícones). Para criar uma categoria nova, acrescente lá **e** nesta tabela, e proponha no relatório.
+- Critérios: brownie e bem-casados → `docinhos`; pães de massa doce (babka, pão de maçã e canela) → `paes-doces`; pão comum (pão de leite) → `paes-e-massas`; recheios e coberturas avulsos → `recheios-e-coberturas`; misturas para bebida (pó para capuccino) → `bebidas-quentes`; bolo servido gelado continua em `bolos`.
+- Mudar a categoria de uma receita publicada muda a URL: mova com `git mv`, atualize a classificação e os links da homepage.
 
 ---
 
@@ -228,9 +241,11 @@ Regras do conteúdo:
 
 ## Páginas de índice
 
-`docs/receitas/index.mdx`: título "Receitas", uma frase de introdução e um `<CardGroup cols={2}>` com um `<Card>` por categoria (título, ícone, contagem de receitas, link para a primeira receita ou para a página da categoria).
+`docs/receitas/index.mdx`: título "Receitas", uma frase de introdução e, para cada tab, um `## <tab>` com um `<CardGroup cols={2}>` e um `<Card>` por seção (título, ícone, contagem de receitas, link para a primeira receita da seção). Gerado por `build_docs.py`.
 
-`docs/index.mdx`: apresentação do caderno, como navegar (categorias × tags) e a lista das receitas adicionadas por último.
+`docs/index.mdx`: homepage estilizada (`mode: custom`, Tailwind), feita à mão: apresentação do caderno, um bloco de cards por tab (uma card por seção, com contagem) e como as receitas estão organizadas. Sem lista de "adicionadas por último" nem menção a lotes. Nunca gere nem sobrescreva por script.
+
+Nem `index.mdx` nem `receitas/index.mdx` entram na navegação: com tabs, o schema do WriteDocs não aceita páginas soltas fora delas. As duas continuam acessíveis por `/` e `/receitas`.
 
 ---
 
@@ -240,3 +255,22 @@ Regras do conteúdo:
 - Não versione `work/` (quadros e recortes são grandes e regeneráveis).
 - Não "corrija" a receita: diferenças de quantidade, temperatura ou tempo são registradas como dúvida, nunca ajustadas em silêncio.
 - Não sobrescreva uma receita existente sem registrar a comparação no relatório.
+
+---
+
+## Notas para os próximos lotes
+
+Aprendizados do lote `receitas1` (43 receitas, 34 páginas duplas):
+
+- **ffmpeg:** não está instalado no sistema. Use o binário do pacote Python `imageio-ffmpeg` (`python -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"`) e o OpenCV (`cv2`), que já está instalado. Não há `ffprobe`: `ffmpeg -i <video>` mostra duração e resolução.
+- **Formato dos vídeos:** 478×850, retrato, caderno deitado na metade de cima. Recorte `crop=478:500:0:0` e gire com `transpose=2`. A letra só fica confiável em recortes ampliados 3× ou mais.
+- **Localizar páginas:** a detecção de cena do ffmpeg não acha nenhuma virada (câmera fixa, virada lenta). `scripts/find_pages.py` (por movimento) perde páginas com a mão por cima e junta páginas parecidas. Monte sempre o mapa à mão com contact sheets **giradas** (1 quadro/s, `crop` + `transpose=2` + `tile`) e anote o intervalo estável de cada página dupla.
+- **Scripts** (rodar da raiz do projeto):
+  - `extract_frames.py <video> <dir> <t...> [--region x0,y0,x1,y1 --scale 3 --prefix rNN_x]`: quadros e recortes girados.
+  - `stack_frames.py <video> <out.png> <t0> <t1> --region ...`: mediana de vários quadros, para números ambíguos (não ajuda se a página se mexe).
+  - `build_docs.py <slug> [--parts <glob>]`: junta `work/<slug>/transcription_part_*.json` em `transcription.json`, lê `work/<slug>/classification.json` (categoria, tags, tempos, `slug`/`sidebarTitle`/`incompleteNote` opcionais) e gera MDX, navegação e `receitas/index.mdx`.
+  - `validate_docs.py <slug>`: checklist do passo 7.
+  - `review_tables.py <slug>`: tabela e lista de dúvidas do relatório.
+- **Transcrição em paralelo:** dividir as páginas duplas em blocos contíguos para subagentes funcionou bem, usando `work/<slug>/TRANSCRIPTION_BRIEF.md` como instrução comum (regras, ferramentas e formato JSON). Confira algumas receitas de cada bloco contra os recortes.
+- **Aviso de receita incompleta:** o texto vem de `incompleteNote` na classificação, escrito para o leitor. Nunca use o campo `notes` da transcrição, que é nota interna.
+- **Build do WriteDocs:** `npx @writedocs/generator validate` ainda não foi rodado neste projeto (bloqueado pela política de permissões da sessão). Pendente confirmar se as chaves próprias do frontmatter (`tags`, `notebook`, `mainIngredients` etc.) passam na validação.

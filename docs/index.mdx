@@ -4,156 +4,168 @@ description: "Receitas de família transcritas de um caderno manuscrito, com ing
 mode: custom
 ---
 
-<div className="mx-auto max-w-5xl px-4 pb-20">
+<div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
 
-<section className="relative mt-8 mb-14 overflow-hidden rounded-2xl border border-[#ead9c4] bg-[#fbf3e6] bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_31px,#ead9c4_31px,#ead9c4_32px)] py-10 pl-14 pr-6 sm:py-14 sm:pl-16 dark:border-[#3a2e26] dark:bg-[#241c17] dark:bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_31px,#3a2e26_31px,#3a2e26_32px)]">
-  <div className="absolute inset-y-0 left-10 w-0.5 bg-[#c4572e]/50" aria-hidden="true"></div>
-  <h1 className="m-0 leading-none">
-    <img className="block h-20 w-auto max-w-full sm:h-28 dark:hidden" src="/images/logo_light.svg" alt="Caderno de receitas" />
-    <img className="hidden h-20 w-auto max-w-full sm:h-28 dark:block" src="/images/logo_dark.svg" alt="Caderno de receitas" />
-  </h1>
-  <p className="mt-6 mb-2 text-sm font-semibold uppercase tracking-widest text-[#b4502b] dark:text-[#e8875f]">Receitas de família, escritas à mão</p>
-  <p className="m-0 max-w-xl text-lg leading-relaxed text-[#3a2a1f] dark:text-[#f3e6d3]">
-    As receitas de um caderno manuscrito, passadas a limpo página por página: ingredientes, modo de preparo e as anotações de quem cozinhou cada uma.
-  </p>
-  <div className="mt-7 flex flex-wrap gap-3">
-    <a className="rounded-full border-2 border-[#b4502b] bg-[#b4502b] px-5 py-2.5 font-semibold text-white no-underline hover:brightness-110 dark:border-[#e8875f] dark:bg-[#e8875f] dark:text-[#1a1411]" href="/receitas/index">Ver todas as receitas</a>
-    <a className="rounded-full border-2 border-[#b4502b] px-5 py-2.5 font-semibold text-[#b4502b] no-underline hover:bg-[#b4502b]/10 dark:border-[#e8875f] dark:text-[#e8875f]" href="#como-navegar">Como navegar</a>
+<section className="grid items-center gap-14 pt-12 pb-20 md:grid-cols-[1.15fr_0.85fr] md:pt-20">
+  <div>
+    <p className="m-0 mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#b4502b] dark:text-[#e8875f]">Receitas de família</p>
+    <h1 className="m-0 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-[#3a2a1f] sm:text-6xl dark:text-[#f3e6d3]">
+      Um caderno de receitas, <span className="italic text-[#b4502b] dark:text-[#e8875f]">passado a limpo.</span>
+    </h1>
+    <p className="mt-6 mb-0 max-w-xl text-lg leading-relaxed text-[#6e5a4c] dark:text-[#c2b1a0]">
+      Bolos, doces, pães e sobremesas do caderno manuscrito da família, transcritos página por página, com ingredientes e modo de preparo fáceis de seguir na cozinha.
+    </p>
+    <div className="mt-8 flex flex-wrap items-center gap-3">
+      <a className="rounded-full bg-[#b4502b] px-6 py-3 font-semibold text-white no-underline shadow-sm transition hover:brightness-110 dark:bg-[#e8875f] dark:text-[#1a1411]" href="/receitas">Explorar receitas</a>
+      <a className="rounded-full border border-[#d9c2a8] px-6 py-3 font-semibold text-[#3a2a1f] no-underline transition hover:border-[#b4502b] hover:text-[#b4502b] dark:border-[#4a3b31] dark:text-[#f3e6d3] dark:hover:border-[#e8875f] dark:hover:text-[#e8875f]" href="/receitas/bolos/bolo-capuccino-sem-gluten">Começar pelos bolos</a>
+    </div>
+    <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[#ead9c4] pt-6 dark:border-[#3a2e26]">
+      <div><span className="block font-serif text-3xl font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">43</span><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">receitas</span></div>
+      <div><span className="block font-serif text-3xl font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">9</span><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">seções</span></div>
+      <div><span className="block font-serif text-3xl font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">1</span><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">caderno escrito à mão</span></div>
+    </div>
   </div>
-  <ul className="mt-9 flex list-none flex-wrap gap-8 p-0">
-    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">43</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">receitas</span></li>
-    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">5</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">categorias</span></li>
-    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">23</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">receitas fáceis</span></li>
-  </ul>
+
+  <div className="relative mx-auto w-full max-w-sm" aria-hidden="true">
+    <div className="absolute inset-0 translate-x-3 translate-y-3 rotate-[5deg] rounded-2xl bg-[#ead9c4] dark:bg-[#2e241d]"></div>
+    <div className="absolute inset-0 rotate-[2deg] rounded-2xl border border-[#ead9c4] bg-[#f6ead8] dark:border-[#3a2e26] dark:bg-[#211a15]"></div>
+    <a href="/receitas/bolos/bolo-de-leite-ninho" className="relative block -rotate-[2deg] overflow-hidden rounded-2xl border border-[#ead9c4] bg-[#fffaf1] bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_29px,#efe1cd_29px,#efe1cd_30px)] py-7 pr-6 pl-14 no-underline shadow-xl transition hover:rotate-0 dark:border-[#3a2e26] dark:bg-[#241c17] dark:bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_29px,#33281f_29px,#33281f_30px)]">
+      <span className="absolute inset-y-0 left-9 w-0.5 bg-[#c4572e]/50"></span>
+      <span className="flex items-center justify-between">
+        <span className="rounded-full bg-[#b4502b] px-2.5 py-0.5 text-xs font-bold text-white dark:bg-[#e8875f] dark:text-[#1a1411]">nº 2</span>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#9a8574] dark:text-[#8f7e70]">Bolos</span>
+      </span>
+      <span className="mt-4 block font-serif text-2xl font-semibold italic text-[#3a2a1f] dark:text-[#f3e6d3]">Bolo de leite Ninho</span>
+      <span className="mt-4 block space-y-[6px] font-serif text-[15px] leading-6 text-[#4a3326] dark:text-[#d8c8b6]">
+        <span className="block">6 ovos</span>
+        <span className="block">1/2 xícara de açúcar</span>
+        <span className="block">1/2 xícara de manteiga</span>
+        <span className="block">2 xícaras de leite em pó</span>
+        <span className="block">100 g de coco ralado</span>
+      </span>
+      <span className="mt-5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Ver a receita →</span>
+    </a>
+  </div>
 </section>
 
-<section className="mt-14">
-  <h2 className="mb-1 text-2xl">Categorias</h2>
-  <p className="mt-0 mb-5 text-[#6e5a4c] dark:text-[#c2b1a0]">Escolha por onde começar. Dentro de cada categoria, as receitas estão em ordem alfabética.</p>
+<section className="py-10">
+  <div className="mb-8 max-w-2xl">
+    <h2 className="m-0 font-serif text-3xl font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">O que tem no caderno</h2>
+    <p className="mt-2 mb-0 text-[#6e5a4c] dark:text-[#c2b1a0]">Doces, salgados e bebidas ficam em abas no topo. Dentro de cada aba, as seções abrem na barra lateral, com as receitas em ordem alfabética.</p>
+  </div>
 
-  <CardGroup cols={3}>
-    <Card title="Bolos" icon="cake" href="/receitas/bolos/bolo-capuccino-sem-gluten">
-      26 receitas
-    </Card>
-    <Card title="Doces" icon="candy" href="/receitas/doces/bem-casados">
-      10 receitas
-    </Card>
-    <Card title="Sobremesas geladas" icon="ice-cream-cone" href="/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas">
-      3 receitas
-    </Card>
-    <Card title="Pães e massas" icon="wheat" href="/receitas/paes-e-massas/babka">
-      3 receitas
-    </Card>
-    <Card title="Bebidas" icon="cup-soda" href="/receitas/bebidas/po-para-capuccino">
-      1 receita
-    </Card>
-    <Card title="Visão geral" icon="book-open" href="/receitas/index">
-      Todas as categorias numa página
-    </Card>
-  </CardGroup>
+  <h3 className="m-0 mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#b4502b] dark:text-[#e8875f]">Doces <span className="ml-1 font-normal text-[#9a8574]">41</span></h3>
+  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="/receitas/bolos/bolo-capuccino-sem-gluten" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f6e3d6] text-[#b4502b] dark:bg-[#3a2419] dark:text-[#e8875f]"><Icon icon="cake" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Bolos <span className="ml-1 text-sm font-normal text-[#9a8574]">26</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Do bolo de laranja ao cheesecake japonês.</span>
+      </span>
+    </a>
+    <a href="/receitas/tortas-doces/torta-de-maca-alema" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f7e7d3] text-[#9a5a1f] dark:bg-[#33261a] dark:text-[#e3a86a]"><Icon icon="cake-slice" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Tortas doces <span className="ml-1 text-sm font-normal text-[#9a8574]">3</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Torta de maçã alemã, de banana com Ovomaltine e pica-pau.</span>
+      </span>
+    </a>
+    <a href="/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3eef3] text-[#3d6f86] dark:bg-[#1c2b33] dark:text-[#8cc3dc]"><Icon icon="ice-cream-cone" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Sobremesas geladas <span className="ml-1 text-sm font-normal text-[#9a8574]">3</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Pavê, cheesecake e sobremesa de doce de leite.</span>
+      </span>
+    </a>
+    <a href="/receitas/biscoitos/bolacha-de-canela-formato-de-caracol" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f2e8d9] text-[#7a5a3a] dark:bg-[#2f261d] dark:text-[#d6b48f]"><Icon icon="cookie" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Biscoitos e bolachas <span className="ml-1 text-sm font-normal text-[#9a8574]">3</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Broa de polvilho, rosquinha de queijo e bolacha de canela.</span>
+      </span>
+    </a>
+    <a href="/receitas/docinhos/bem-casados" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f8e6ea] text-[#a8435a] dark:bg-[#3a1f26] dark:text-[#e88aa0]"><Icon icon="candy" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Docinhos e brownies <span className="ml-1 text-sm font-normal text-[#9a8574]">2</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Bem-casados e brownie.</span>
+      </span>
+    </a>
+    <a href="/receitas/paes-doces/babka" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f5ecd5] text-[#8a6a1f] dark:bg-[#332a17] dark:text-[#e0c27a]"><Icon icon="croissant" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Pães doces <span className="ml-1 text-sm font-normal text-[#9a8574]">2</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Babka e pão de maçã e canela.</span>
+      </span>
+    </a>
+    <a href="/receitas/recheios-e-coberturas/recheio-alpino-com-morango" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#efe3f0] text-[#7a4a86] dark:bg-[#2c2030] dark:text-[#c9a0d6]"><Icon icon="chef-hat" size={24} /></span>
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Recheios e coberturas <span className="ml-1 text-sm font-normal text-[#9a8574]">2</span></span>
+        <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Recheio trufado e recheio alpino com morango.</span>
+      </span>
+    </a>
+  </div>
+
+  <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <h3 className="m-0 mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#b4502b] dark:text-[#e8875f]">Salgados <span className="ml-1 font-normal text-[#9a8574]">1</span></h3>
+      <a href="/receitas/paes-e-massas/pao-de-leite" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e6eedd] text-[#55703a] dark:bg-[#222b1c] dark:text-[#a9c98a]"><Icon icon="wheat" size={24} /></span>
+        <span className="flex flex-col">
+          <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Pães e massas <span className="ml-1 text-sm font-normal text-[#9a8574]">1</span></span>
+          <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Pão de leite, enrolado como rocambole.</span>
+        </span>
+      </a>
+    </div>
+    <div>
+      <h3 className="m-0 mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#b4502b] dark:text-[#e8875f]">Bebidas <span className="ml-1 font-normal text-[#9a8574]">1</span></h3>
+      <a href="/receitas/bebidas-quentes/po-para-capuccino" className="group flex gap-4 rounded-2xl border border-[#ead9c4] bg-white/70 p-5 no-underline transition hover:-translate-y-1 hover:border-[#b4502b] hover:shadow-lg dark:border-[#3a2e26] dark:bg-white/[0.03] dark:hover:border-[#e8875f]">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#ede4dc] text-[#6b4a35] dark:bg-[#2e231c] dark:text-[#d2b49c]"><Icon icon="coffee" size={24} /></span>
+        <span className="flex flex-col">
+          <span className="font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Bebidas quentes <span className="ml-1 text-sm font-normal text-[#9a8574]">1</span></span>
+          <span className="mt-1 text-sm leading-snug text-[#6e5a4c] dark:text-[#c2b1a0]">Pó para capuccino, para ter sempre pronto.</span>
+        </span>
+      </a>
+    </div>
+    <a href="/receitas" className="group flex items-center justify-between gap-4 self-end rounded-2xl bg-[#3a2a1f] p-5 no-underline transition hover:-translate-y-1 hover:shadow-lg dark:bg-[#f3e6d3]">
+      <span className="flex flex-col">
+        <span className="font-semibold text-[#fbf3e6] dark:text-[#1a1411]">Ver tudo</span>
+        <span className="mt-1 text-sm text-[#d8c8b6] dark:text-[#6e5a4c]">Todas as seções numa página.</span>
+      </span>
+      <span className="text-2xl text-[#e8875f] transition group-hover:translate-x-1 dark:text-[#b4502b]">→</span>
+    </a>
+  </div>
 </section>
 
-<section className="mt-14">
-  <h2 className="mb-1 text-2xl">Adicionadas por último</h2>
-  <p className="mt-0 mb-5 text-[#6e5a4c] dark:text-[#c2b1a0]">Algumas receitas do lote mais recente, o <code>receitas1</code>.</p>
-
-  <CardGroup cols={3}>
-    <Card title="Bolo de leite Ninho" href="/receitas/bolos/bolo-de-leite-ninho">
-      Bolo de liquidificador com leite em pó e coco ralado, assado em forma untada.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Fácil · 40 min</span>
-    </Card>
-    <Card title="Torta de maçã alemã" href="/receitas/doces/torta-de-maca-alema">
-      Torta de camadas de maçã, passas e canela, regada com manteiga e ovos e assada até dourar.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Fácil · 1 h</span>
-    </Card>
-    <Card title="Bolo red velvet" href="/receitas/bolos/bolo-red-velvet">
-      Com iogurte, cacau e corante vermelho, recheado com creme de cream cheese e chocolate branco.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Média · 1 h 30 min</span>
-    </Card>
-    <Card title="Pavê trufa de cereja" href="/receitas/sobremesas-geladas/pave-trufa-de-cereja">
-      Biscoito maisena com creme de baunilha e trufa de chocolate meio amargo com cerejas.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Média · 4 h 40 min</span>
-    </Card>
-    <Card title="Cheesecake japonês" href="/receitas/bolos/cheesecake-japones">
-      Leve e aerado, com cream cheese, gemas e claras em neve, assado em banho-maria.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Difícil · 1 h 50 min</span>
-    </Card>
-    <Card title="Babka" href="/receitas/paes-e-massas/babka">
-      Pão doce trançado de massa fermentada, recheado com chocolate e pincelado com calda.
-      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Difícil · 11 h 30 min</span>
-    </Card>
-  </CardGroup>
-
-  <Accordion title="Todas as 43 receitas do lote receitas1" className="mt-6">
-
-- [Torta de maçã alemã](/receitas/doces/torta-de-maca-alema) · Doces
-- [Bolo de leite Ninho](/receitas/bolos/bolo-de-leite-ninho) · Bolos
-- [Bolo de chocolate sem glúten](/receitas/bolos/bolo-de-chocolate-sem-gluten) · Bolos
-- [Bolo de laranja](/receitas/bolos/bolo-de-laranja) · Bolos
-- [Bolo red velvet](/receitas/bolos/bolo-red-velvet) · Bolos
-- [Bem-casados](/receitas/doces/bem-casados) · Doces
-- [Recheio trufado para bolo](/receitas/doces/recheio-trufado-para-bolo) · Doces
-- [Babka](/receitas/paes-e-massas/babka) · Pães e massas
-- [Cheesecake japonês](/receitas/bolos/cheesecake-japones) · Bolos
-- [Bolo de coco gelado](/receitas/bolos/bolo-de-coco-gelado) · Bolos
-- [Pavê trufa de cereja](/receitas/sobremesas-geladas/pave-trufa-de-cereja) · Sobremesas geladas
-- [Bolo chiffon de tangerina](/receitas/bolos/bolo-chiffon-de-tangerina) · Bolos
-- [Recheio alpino com morango](/receitas/doces/recheio-alpino-com-morango) · Doces
-- [Broa de polvilho doce](/receitas/doces/broa-de-polvilho-doce) · Doces
-- [Bolo capuccino sem glúten](/receitas/bolos/bolo-capuccino-sem-gluten) · Bolos
-- [Bolo de chocolate com laranja sem glúten](/receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten) · Bolos
-- [Pão de maçã e canela](/receitas/paes-e-massas/pao-de-maca-e-canela) · Pães e massas
-- [Bolo de cacau com banana](/receitas/bolos/bolo-de-cacau-com-banana) · Bolos
-- [Bolo francês de maçãs](/receitas/bolos/bolo-frances-de-macas) · Bolos
-- [Bolo capuccino sem glúten](/receitas/bolos/bolo-capuccino-sem-gluten-2) · Bolos
-- [Pão de leite](/receitas/paes-e-massas/pao-de-leite) · Pães e massas
-- [Bolo de ameixa](/receitas/bolos/bolo-de-ameixa) · Bolos
-- [Torta de banana com Ovomaltine](/receitas/doces/torta-de-banana-com-ovomaltine) · Doces
-- [Bolo de frutas](/receitas/bolos/bolo-de-frutas) · Bolos
-- [Bolacha de canela (formato de caracol)](/receitas/doces/bolacha-de-canela-formato-de-caracol) · Doces
-- [Bolo de maçã](/receitas/bolos/bolo-de-maca) · Bolos
-- [Bolo de abobrinha](/receitas/bolos/bolo-de-abobrinha) · Bolos
-- [Bolo diet](/receitas/bolos/bolo-diet) · Bolos
-- [Bolo de araruta](/receitas/bolos/bolo-de-araruta) · Bolos
-- [Bolo nuvem](/receitas/bolos/bolo-nuvem) · Bolos
-- [Pão de ló de chocolate (profissional)](/receitas/bolos/pao-de-lo-de-chocolate-profissional) · Bolos
-- [Bolo de banana para bebê](/receitas/bolos/bolo-de-banana-para-bebe) · Bolos
-- [Pó para capuccino](/receitas/bebidas/po-para-capuccino) · Bebidas
-- [Cheesecake de frutas vermelhas](/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas) · Sobremesas geladas
-- [Rosquinha de queijo](/receitas/doces/rosquinha-de-queijo) · Doces
-- [Bolo queijadinha](/receitas/bolos/bolo-queijadinha) · Bolos
-- [Sobremesa de doce de leite](/receitas/sobremesas-geladas/sobremesa-de-doce-de-leite) · Sobremesas geladas
-- [Brownie](/receitas/doces/brownie) · Doces
-- [Crunch cake](/receitas/bolos/crunch-cake) · Bolos
-- [Cupcake de chocolate](/receitas/bolos/cupcake-de-chocolate) · Bolos
-- [Bolo de cenoura e laranja](/receitas/bolos/bolo-de-cenoura-e-laranja) · Bolos
-- [Bolo toalha felpuda](/receitas/bolos/bolo-toalha-felpuda) · Bolos
-- [Torta pica-pau](/receitas/doces/torta-pica-pau) · Doces
-
-</Accordion>
+<section className="py-14">
+  <h2 className="m-0 mb-8 font-serif text-3xl font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Como as receitas estão organizadas</h2>
+  <div className="grid gap-10 md:grid-cols-3">
+    <div>
+      <span className="font-serif text-5xl font-semibold italic text-[#e3c9ad] dark:text-[#4a3b31]">1</span>
+      <h3 className="mt-2 mb-2 text-lg font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Ingredientes por parte</h3>
+      <p className="m-0 leading-relaxed text-[#6e5a4c] dark:text-[#c2b1a0]">Massa, recheio e cobertura aparecem separados, do jeito que o caderno separa.</p>
+    </div>
+    <div>
+      <span className="font-serif text-5xl font-semibold italic text-[#e3c9ad] dark:text-[#4a3b31]">2</span>
+      <h3 className="mt-2 mb-2 text-lg font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Preparo em etapas</h3>
+      <p className="m-0 leading-relaxed text-[#6e5a4c] dark:text-[#c2b1a0]">O modo de preparo vem dividido em passos curtos, fáceis de acompanhar com a mão na massa.</p>
+    </div>
+    <div>
+      <span className="font-serif text-5xl font-semibold italic text-[#e3c9ad] dark:text-[#4a3b31]">3</span>
+      <h3 className="mt-2 mb-2 text-lg font-semibold text-[#3a2a1f] dark:text-[#f3e6d3]">Tags para achar rápido</h3>
+      <p className="m-0 leading-relaxed text-[#6e5a4c] dark:text-[#c2b1a0]">Tipo de prato, técnica e ingrediente principal: tudo que leva chocolate, ou tudo que não vai ao forno.</p>
+    </div>
+  </div>
 </section>
 
-<section className="mt-14 scroll-mt-24" id="como-navegar">
-  <h2 className="mb-5 text-2xl">Como navegar</h2>
-
-  <CardGroup cols={3}>
-    <Card title="Por categoria" icon="folder-open">
-      A barra lateral agrupa as receitas em bolos, doces, sobremesas geladas, pães e massas e bebidas.
-    </Card>
-    <Card title="Por tags" icon="tags">
-      Cada receita tem tags de tipo de prato, técnica, ingrediente principal e ocasião, para achar, por exemplo, tudo que leva chocolate ou não vai ao forno.
-    </Card>
-    <Card title="Pelo número do caderno" icon="hash">
-      O quadro no topo de cada receita mostra o número dela no caderno original.
-    </Card>
-  </CardGroup>
-</section>
-
-<section className="mt-14 rounded-lg border-l-4 border-[#b4502b] bg-[#fbf3e6] px-7 py-6 dark:border-[#e8875f] dark:bg-[#241c17]">
-  <h2 className="mt-0 mb-2 text-2xl">Sobre as transcrições</h2>
-  <p className="m-0 max-w-3xl leading-relaxed text-[#3a2a1f] dark:text-[#f3e6d3]">
-    As receitas foram transcritas como estão no caderno, sem correções de quantidade, temperatura ou tempo. Quando um trecho não pôde ser lido com segurança, a página traz um aviso com o momento do vídeo em que ele aparece.
-  </p>
+<section className="flex justify-center pt-6">
+  <div className="max-w-xl -rotate-1 rounded-sm bg-[#fff1b8] px-8 py-7 text-center shadow-md dark:bg-[#3b3320]">
+    <p className="m-0 font-serif text-xl font-semibold italic text-[#4a3326] dark:text-[#f0e2b0]">Do jeito que está escrito.</p>
+    <p className="mt-3 mb-0 leading-relaxed text-[#5c4636] dark:text-[#d9cba0]">
+      Nada foi corrigido: quantidades, temperaturas e tempos estão como no caderno. Quando um trecho não deu para ler com segurança, a receita avisa.
+    </p>
+  </div>
 </section>
 
 </div>

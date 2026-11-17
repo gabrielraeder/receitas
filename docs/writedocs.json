@@ -21,81 +21,114 @@
       }
     }
   },
-  "navigation": [
-    {
-      "group": "Início",
-      "pages": [
-        "index",
-        "receitas/index"
-      ]
-    },
-    {
-      "group": "Bolos",
-      "pages": [
-        "receitas/bolos/bolo-capuccino-sem-gluten",
-        "receitas/bolos/bolo-capuccino-sem-gluten-2",
-        "receitas/bolos/bolo-chiffon-de-tangerina",
-        "receitas/bolos/bolo-de-abobrinha",
-        "receitas/bolos/bolo-de-ameixa",
-        "receitas/bolos/bolo-de-araruta",
-        "receitas/bolos/bolo-de-banana-para-bebe",
-        "receitas/bolos/bolo-de-cacau-com-banana",
-        "receitas/bolos/bolo-de-cenoura-e-laranja",
-        "receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten",
-        "receitas/bolos/bolo-de-chocolate-sem-gluten",
-        "receitas/bolos/bolo-de-coco-gelado",
-        "receitas/bolos/bolo-de-frutas",
-        "receitas/bolos/bolo-de-laranja",
-        "receitas/bolos/bolo-de-leite-ninho",
-        "receitas/bolos/bolo-de-maca",
-        "receitas/bolos/bolo-diet",
-        "receitas/bolos/bolo-frances-de-macas",
-        "receitas/bolos/bolo-nuvem",
-        "receitas/bolos/bolo-queijadinha",
-        "receitas/bolos/bolo-red-velvet",
-        "receitas/bolos/bolo-toalha-felpuda",
-        "receitas/bolos/cheesecake-japones",
-        "receitas/bolos/crunch-cake",
-        "receitas/bolos/cupcake-de-chocolate",
-        "receitas/bolos/pao-de-lo-de-chocolate-profissional"
-      ]
-    },
-    {
-      "group": "Doces",
-      "pages": [
-        "receitas/doces/bem-casados",
-        "receitas/doces/bolacha-de-canela-formato-de-caracol",
-        "receitas/doces/broa-de-polvilho-doce",
-        "receitas/doces/brownie",
-        "receitas/doces/recheio-alpino-com-morango",
-        "receitas/doces/recheio-trufado-para-bolo",
-        "receitas/doces/rosquinha-de-queijo",
-        "receitas/doces/torta-de-banana-com-ovomaltine",
-        "receitas/doces/torta-de-maca-alema",
-        "receitas/doces/torta-pica-pau"
-      ]
-    },
-    {
-      "group": "Sobremesas geladas",
-      "pages": [
-        "receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas",
-        "receitas/sobremesas-geladas/pave-trufa-de-cereja",
-        "receitas/sobremesas-geladas/sobremesa-de-doce-de-leite"
-      ]
-    },
-    {
-      "group": "Pães e massas",
-      "pages": [
-        "receitas/paes-e-massas/babka",
-        "receitas/paes-e-massas/pao-de-leite",
-        "receitas/paes-e-massas/pao-de-maca-e-canela"
-      ]
-    },
-    {
-      "group": "Bebidas",
-      "pages": [
-        "receitas/bebidas/po-para-capuccino"
-      ]
-    }
-  ]
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Doces",
+        "icon": "cake-slice",
+        "pages": [
+          {
+            "group": "Bolos",
+            "pages": [
+              "receitas/bolos/bolo-capuccino-sem-gluten",
+              "receitas/bolos/bolo-capuccino-sem-gluten-2",
+              "receitas/bolos/bolo-chiffon-de-tangerina",
+              "receitas/bolos/bolo-de-abobrinha",
+              "receitas/bolos/bolo-de-ameixa",
+              "receitas/bolos/bolo-de-araruta",
+              "receitas/bolos/bolo-de-banana-para-bebe",
+              "receitas/bolos/bolo-de-cacau-com-banana",
+              "receitas/bolos/bolo-de-cenoura-e-laranja",
+              "receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten",
+              "receitas/bolos/bolo-de-chocolate-sem-gluten",
+              "receitas/bolos/bolo-de-coco-gelado",
+              "receitas/bolos/bolo-de-frutas",
+              "receitas/bolos/bolo-de-laranja",
+              "receitas/bolos/bolo-de-leite-ninho",
+              "receitas/bolos/bolo-de-maca",
+              "receitas/bolos/bolo-diet",
+              "receitas/bolos/bolo-frances-de-macas",
+              "receitas/bolos/bolo-nuvem",
+              "receitas/bolos/bolo-queijadinha",
+              "receitas/bolos/bolo-red-velvet",
+              "receitas/bolos/bolo-toalha-felpuda",
+              "receitas/bolos/cheesecake-japones",
+              "receitas/bolos/crunch-cake",
+              "receitas/bolos/cupcake-de-chocolate",
+              "receitas/bolos/pao-de-lo-de-chocolate-profissional"
+            ]
+          },
+          {
+            "group": "Tortas doces",
+            "pages": [
+              "receitas/tortas-doces/torta-de-banana-com-ovomaltine",
+              "receitas/tortas-doces/torta-de-maca-alema",
+              "receitas/tortas-doces/torta-pica-pau"
+            ]
+          },
+          {
+            "group": "Sobremesas geladas",
+            "pages": [
+              "receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas",
+              "receitas/sobremesas-geladas/pave-trufa-de-cereja",
+              "receitas/sobremesas-geladas/sobremesa-de-doce-de-leite"
+            ]
+          },
+          {
+            "group": "Biscoitos e bolachas",
+            "pages": [
+              "receitas/biscoitos/bolacha-de-canela-formato-de-caracol",
+              "receitas/biscoitos/broa-de-polvilho-doce",
+              "receitas/biscoitos/rosquinha-de-queijo"
+            ]
+          },
+          {
+            "group": "Docinhos e brownies",
+            "pages": [
+              "receitas/docinhos/bem-casados",
+              "receitas/docinhos/brownie"
+            ]
+          },
+          {
+            "group": "Pães doces",
+            "pages": [
+              "receitas/paes-doces/babka",
+              "receitas/paes-doces/pao-de-maca-e-canela"
+            ]
+          },
+          {
+            "group": "Recheios e coberturas",
+            "pages": [
+              "receitas/recheios-e-coberturas/recheio-alpino-com-morango",
+              "receitas/recheios-e-coberturas/recheio-trufado-para-bolo"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Salgados",
+        "icon": "utensils",
+        "pages": [
+          {
+            "group": "Pães e massas",
+            "pages": [
+              "receitas/paes-e-massas/pao-de-leite"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Bebidas",
+        "icon": "cup-soda",
+        "pages": [
+          {
+            "group": "Bebidas quentes",
+            "pages": [
+              "receitas/bebidas-quentes/po-para-capuccino"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

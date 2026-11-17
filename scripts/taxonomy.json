@@ -1,0 +1,40 @@
+{
+  "_comment": "Tabs da navegação e as seções de cada uma. Cada seção é uma categoria (pasta em docs/receitas/<key>/ e valor de 'category' no frontmatter). Seções sem receitas não aparecem na navegação. Para criar uma seção nova, acrescente aqui e no CLAUDE.md.",
+  "tabs": [
+    {
+      "key": "doces",
+      "label": "Doces",
+      "icon": "cake-slice",
+      "sections": [
+        {"key": "bolos", "label": "Bolos", "icon": "cake"},
+        {"key": "tortas-doces", "label": "Tortas doces", "icon": "pie-chart"},
+        {"key": "sobremesas-geladas", "label": "Sobremesas geladas", "icon": "ice-cream-cone"},
+        {"key": "biscoitos", "label": "Biscoitos e bolachas", "icon": "cookie"},
+        {"key": "docinhos", "label": "Docinhos e brownies", "icon": "candy"},
+        {"key": "paes-doces", "label": "Pães doces", "icon": "croissant"},
+        {"key": "recheios-e-coberturas", "label": "Recheios e coberturas", "icon": "chef-hat"}
+      ]
+    },
+    {
+      "key": "salgados",
+      "label": "Salgados",
+      "icon": "utensils",
+      "sections": [
+        {"key": "paes-e-massas", "label": "Pães e massas", "icon": "wheat"},
+        {"key": "salgadinhos", "label": "Salgadinhos e lanches", "icon": "sandwich"},
+        {"key": "tortas-salgadas", "label": "Tortas salgadas", "icon": "pizza"},
+        {"key": "pratos-principais", "label": "Pratos principais", "icon": "cooking-pot"},
+        {"key": "acompanhamentos", "label": "Acompanhamentos", "icon": "salad"}
+      ]
+    },
+    {
+      "key": "bebidas",
+      "label": "Bebidas",
+      "icon": "cup-soda",
+      "sections": [
+        {"key": "bebidas-quentes", "label": "Bebidas quentes", "icon": "coffee"},
+        {"key": "bebidas-frias", "label": "Bebidas frias", "icon": "glass-water"}
+      ]
+    }
+  ]
+}

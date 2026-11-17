@@ -10,31 +10,31 @@
 
 | Nº | Título | Arquivo | Status | Dúvidas |
 |---:|---|---|---|---:|
-| 1 | Torta de maçã alemã | [torta-de-maca-alema.mdx](../docs/receitas/doces/torta-de-maca-alema.mdx) | `complete` | 1 |
+| 1 | Torta de maçã alemã | [torta-de-maca-alema.mdx](../docs/receitas/tortas-doces/torta-de-maca-alema.mdx) | `complete` | 1 |
 | 2 | Bolo de leite Ninho | [bolo-de-leite-ninho.mdx](../docs/receitas/bolos/bolo-de-leite-ninho.mdx) | `complete` | 0 |
 | 3 | Bolo de chocolate sem glúten | [bolo-de-chocolate-sem-gluten.mdx](../docs/receitas/bolos/bolo-de-chocolate-sem-gluten.mdx) | `complete` | 1 |
 | 4 | Bolo de laranja | [bolo-de-laranja.mdx](../docs/receitas/bolos/bolo-de-laranja.mdx) | `complete` | 2 |
 | 5 | Bolo red velvet | [bolo-red-velvet.mdx](../docs/receitas/bolos/bolo-red-velvet.mdx) | `needs-review` | 4 |
-| 6 | Bem-casados | [bem-casados.mdx](../docs/receitas/doces/bem-casados.mdx) | `complete` | 1 |
-| 7 | Recheio trufado para bolo | [recheio-trufado-para-bolo.mdx](../docs/receitas/doces/recheio-trufado-para-bolo.mdx) | `complete` | 0 |
-| 8 | Babka | [babka.mdx](../docs/receitas/paes-e-massas/babka.mdx) | `complete` | 3 |
+| 6 | Bem-casados | [bem-casados.mdx](../docs/receitas/docinhos/bem-casados.mdx) | `complete` | 1 |
+| 7 | Recheio trufado para bolo | [recheio-trufado-para-bolo.mdx](../docs/receitas/recheios-e-coberturas/recheio-trufado-para-bolo.mdx) | `complete` | 0 |
+| 8 | Babka | [babka.mdx](../docs/receitas/paes-doces/babka.mdx) | `complete` | 3 |
 | 9 | Cheesecake japonês | [cheesecake-japones.mdx](../docs/receitas/bolos/cheesecake-japones.mdx) | `complete` | 2 |
 | 10 | Bolo de coco gelado | [bolo-de-coco-gelado.mdx](../docs/receitas/bolos/bolo-de-coco-gelado.mdx) | `complete` | 1 |
 | 11 | Pavê trufa de cereja | [pave-trufa-de-cereja.mdx](../docs/receitas/sobremesas-geladas/pave-trufa-de-cereja.mdx) | `complete` | 1 |
 | 12 | Bolo chiffon de tangerina | [bolo-chiffon-de-tangerina.mdx](../docs/receitas/bolos/bolo-chiffon-de-tangerina.mdx) | `complete` | 2 |
-| 13 | Recheio alpino com morango | [recheio-alpino-com-morango.mdx](../docs/receitas/doces/recheio-alpino-com-morango.mdx) | `needs-review` | 2 |
-| 14 | Broa de polvilho doce | [broa-de-polvilho-doce.mdx](../docs/receitas/doces/broa-de-polvilho-doce.mdx) | `complete` | 2 |
+| 13 | Recheio alpino com morango | [recheio-alpino-com-morango.mdx](../docs/receitas/recheios-e-coberturas/recheio-alpino-com-morango.mdx) | `needs-review` | 2 |
+| 14 | Broa de polvilho doce | [broa-de-polvilho-doce.mdx](../docs/receitas/biscoitos/broa-de-polvilho-doce.mdx) | `complete` | 2 |
 | 15 | Bolo capuccino sem glúten | [bolo-capuccino-sem-gluten.mdx](../docs/receitas/bolos/bolo-capuccino-sem-gluten.mdx) | `complete` | 0 |
 | 16 | Bolo de chocolate com laranja sem glúten | [bolo-de-chocolate-com-laranja-sem-gluten.mdx](../docs/receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten.mdx) | `complete` | 1 |
-| 17 | Pão de maçã e canela | [pao-de-maca-e-canela.mdx](../docs/receitas/paes-e-massas/pao-de-maca-e-canela.mdx) | `complete` | 3 |
+| 17 | Pão de maçã e canela | [pao-de-maca-e-canela.mdx](../docs/receitas/paes-doces/pao-de-maca-e-canela.mdx) | `complete` | 3 |
 | 18 | Bolo de cacau com banana | [bolo-de-cacau-com-banana.mdx](../docs/receitas/bolos/bolo-de-cacau-com-banana.mdx) | `complete` | 3 |
 | 19 | Bolo francês de maçãs | [bolo-frances-de-macas.mdx](../docs/receitas/bolos/bolo-frances-de-macas.mdx) | `complete` | 1 |
 | 20 | Bolo capuccino sem glúten | [bolo-capuccino-sem-gluten-2.mdx](../docs/receitas/bolos/bolo-capuccino-sem-gluten-2.mdx) | `complete` | 1 |
 | 21 | Pão de leite | [pao-de-leite.mdx](../docs/receitas/paes-e-massas/pao-de-leite.mdx) | `incomplete` | 1 |
 | 22 | Bolo de ameixa | [bolo-de-ameixa.mdx](../docs/receitas/bolos/bolo-de-ameixa.mdx) | `complete` | 0 |
-| 23 | Torta de banana com Ovomaltine | [torta-de-banana-com-ovomaltine.mdx](../docs/receitas/doces/torta-de-banana-com-ovomaltine.mdx) | `complete` | 1 |
+| 23 | Torta de banana com Ovomaltine | [torta-de-banana-com-ovomaltine.mdx](../docs/receitas/tortas-doces/torta-de-banana-com-ovomaltine.mdx) | `complete` | 1 |
 | 24 | Bolo de frutas | [bolo-de-frutas.mdx](../docs/receitas/bolos/bolo-de-frutas.mdx) | `complete` | 3 |
-| 25 | Bolacha de canela (formato de caracol) | [bolacha-de-canela-formato-de-caracol.mdx](../docs/receitas/doces/bolacha-de-canela-formato-de-caracol.mdx) | `complete` | 1 |
+| 25 | Bolacha de canela (formato de caracol) | [bolacha-de-canela-formato-de-caracol.mdx](../docs/receitas/biscoitos/bolacha-de-canela-formato-de-caracol.mdx) | `complete` | 1 |
 | 26 | Bolo de maçã | [bolo-de-maca.mdx](../docs/receitas/bolos/bolo-de-maca.mdx) | `complete` | 1 |
 | 27 | Bolo de abobrinha | [bolo-de-abobrinha.mdx](../docs/receitas/bolos/bolo-de-abobrinha.mdx) | `complete` | 1 |
 | 28 | Bolo diet | [bolo-diet.mdx](../docs/receitas/bolos/bolo-diet.mdx) | `complete` | 0 |
@@ -42,17 +42,17 @@
 | 30 | Bolo nuvem | [bolo-nuvem.mdx](../docs/receitas/bolos/bolo-nuvem.mdx) | `needs-review` | 1 |
 | 31 | Pão de ló de chocolate (profissional) | [pao-de-lo-de-chocolate-profissional.mdx](../docs/receitas/bolos/pao-de-lo-de-chocolate-profissional.mdx) | `needs-review` | 1 |
 | 32 | Bolo de banana para bebê | [bolo-de-banana-para-bebe.mdx](../docs/receitas/bolos/bolo-de-banana-para-bebe.mdx) | `complete` | 0 |
-| 33 | Pó para capuccino | [po-para-capuccino.mdx](../docs/receitas/bebidas/po-para-capuccino.mdx) | `needs-review` | 1 |
+| 33 | Pó para capuccino | [po-para-capuccino.mdx](../docs/receitas/bebidas-quentes/po-para-capuccino.mdx) | `needs-review` | 1 |
 | 34 | Cheesecake de frutas vermelhas | [cheesecake-de-frutas-vermelhas.mdx](../docs/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas.mdx) | `needs-review` | 6 |
-| 35 | Rosquinha de queijo | [rosquinha-de-queijo.mdx](../docs/receitas/doces/rosquinha-de-queijo.mdx) | `complete` | 2 |
+| 35 | Rosquinha de queijo | [rosquinha-de-queijo.mdx](../docs/receitas/biscoitos/rosquinha-de-queijo.mdx) | `complete` | 2 |
 | 36 | Bolo queijadinha | [bolo-queijadinha.mdx](../docs/receitas/bolos/bolo-queijadinha.mdx) | `complete` | 0 |
 | 37 | Sobremesa de doce de leite | [sobremesa-de-doce-de-leite.mdx](../docs/receitas/sobremesas-geladas/sobremesa-de-doce-de-leite.mdx) | `complete` | 3 |
-| 38 | Brownie | [brownie.mdx](../docs/receitas/doces/brownie.mdx) | `complete` | 2 |
+| 38 | Brownie | [brownie.mdx](../docs/receitas/docinhos/brownie.mdx) | `complete` | 2 |
 | 39 | Crunch cake | [crunch-cake.mdx](../docs/receitas/bolos/crunch-cake.mdx) | `needs-review` | 3 |
 | 40 | Cupcake de chocolate | [cupcake-de-chocolate.mdx](../docs/receitas/bolos/cupcake-de-chocolate.mdx) | `complete` | 4 |
 | 41 | Bolo de cenoura e laranja | [bolo-de-cenoura-e-laranja.mdx](../docs/receitas/bolos/bolo-de-cenoura-e-laranja.mdx) | `complete` | 2 |
 | 42 | Bolo toalha felpuda | [bolo-toalha-felpuda.mdx](../docs/receitas/bolos/bolo-toalha-felpuda.mdx) | `complete` | 3 |
-| 43 | Torta pica-pau | [torta-pica-pau.mdx](../docs/receitas/doces/torta-pica-pau.mdx) | `complete` | 2 |
+| 43 | Torta pica-pau | [torta-pica-pau.mdx](../docs/receitas/tortas-doces/torta-pica-pau.mdx) | `complete` | 2 |
 
 ## Dúvidas por receita
 
@@ -271,9 +271,8 @@ Estas receitas têm trecho que afeta quantidade, tempo ou temperatura e não foi
 Nenhuma tag foi criada. Propostas para o vocabulário controlado:
 
 - **`sem-acucar`** (ou `diet`): receitas 24, 27, 28, 32 e 41 usam xilitol, só fruta ou nenhum açúcar, e uma se chama "Bolo diet". Hoje não há tag para isso.
-- **`recheio`**: as receitas 7 (Recheio trufado para bolo) e 13 (Recheio alpino com morango) são componentes, não pratos. Hoje estão em `doces` só com tags genéricas.
 - **Uso de `sem-gluten`:** o caderno diz "sem glúten" no título das receitas 3, 15, 16 e 20, e as receitas 14 (polvilho) e 29 (araruta) também não levam trigo. A tag **não** foi aplicada a nenhuma delas porque todas têm ingrediente processado com risco de glúten (fermento em pó, cacau, chocolate, aveia, margarina), como manda a regra do `CLAUDE.md`. Se a regra puder aceitar "o caderno declara sem glúten", seis receitas ganham a tag.
-- **Categoria para tortas:** as receitas 1, 23 e 43 (tortas doces) ficaram em `doces`. Se as tortas forem crescer, talvez valha uma categoria própria.
+- **Seções (atualização):** a navegação passou a usar tabs (Doces, Salgados, Bebidas) com seções por tipo, definidas em `scripts/taxonomy.json`. As tortas (1, 23, 43) foram para `tortas-doces`, os recheios (7, 13) para `recheios-e-coberturas`, e as propostas de categoria para tortas e de tag `recheio` deixaram de ser necessárias. O Pão de leite (21) ficou em Salgados > Pães e massas; babka e pão de maçã e canela, em Doces > Pães doces.
 
 ## Sugestões (não aplicadas nas páginas)
 

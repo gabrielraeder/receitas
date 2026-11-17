@@ -1,0 +1,12 @@
+/* Larger logo. WriteDocs renders it at height="24" in .wd-topbar-brand
+   (top bar and mobile menu header) and in the footer. */
+.wd-topbar-brand img {
+  height: 40px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .wd-topbar-brand img {
+    height: 32px;
+  }
+}

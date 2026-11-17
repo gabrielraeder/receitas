@@ -9,10 +9,12 @@ Entradas (em work/<video-slug>/):
 
 Saídas:
     docs/receitas/<categoria>/<slug>.mdx
-    writedocs.json             (navegação reconstruída a partir de todos os MDX existentes)
-    docs/receitas/index.mdx    (cards por categoria com contagem)
-    docs/index.mdx             (página inicial, com as receitas do último lote)
+    docs/writedocs.json        (só a chave "navigation" é reconstruída, em tabs; o resto é preservado)
+    docs/receitas/index.mdx    (cards por seção, agrupados por tab, com contagem)
     work/<video-slug>/build_report.json (arquivos gerados, pulados e conflitos)
+
+A homepage (docs/index.mdx) é feita à mão e NÃO é tocada por este script.
+Tabs e seções vêm de scripts/taxonomy.json (cada seção = uma categoria/pasta).
 
 Regra de sobrescrita: um MDX existente só é regravado se o frontmatter dele tiver a
 mesma origem (notebook.source) e o mesmo número (notebook.number). Caso contrário o
@@ -28,16 +30,11 @@ import unicodedata
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DOCS = os.path.join(ROOT, "docs")  # raiz do site WriteDocs (onde fica writedocs.json)
 
-CATEGORIES = [
-    ("bolos", "Bolos", "cake"),
-    ("doces", "Doces", "candy"),
-    ("sobremesas-geladas", "Sobremesas geladas", "ice-cream-cone"),
-    ("paes-e-massas", "Pães e massas", "wheat"),
-    ("salgados", "Salgados", "utensils"),
-    ("bebidas", "Bebidas", "cup-soda"),
-]
-CATEGORY_KEYS = [c[0] for c in CATEGORIES]
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "taxonomy.json"), encoding="utf-8") as _f:
+    TAXONOMY = json.load(_f)["tabs"]
+CATEGORY_KEYS = [s["key"] for t in TAXONOMY for s in t["sections"]]
 
 TAGS = {
     "doce", "salgado", "bebida",
@@ -179,14 +176,21 @@ def build_body(r, c):
 
 
 def scan_recipes():
-    items = []
-    for path in glob.glob(os.path.join(ROOT, "docs", "receitas", "*", "*.mdx")):
+    """Lista todas as receitas publicadas. `path` é relativo a docs/ (formato da navegação e das URLs)."""
+    items, seen = [], {}
+    for path in glob.glob(os.path.join(DOCS, "receitas", "*", "*.mdx")):
         fm = read_frontmatter(path)
-        rel = os.path.relpath(path, ROOT).replace("\\", "/")[:-4]
+        rel = os.path.relpath(path, DOCS).replace("\\", "/")[:-4]
         if os.path.basename(rel) == "index":
             continue
+        nb = fm.get("notebook") or {}
+        key = (nb.get("source"), nb.get("number"))
+        if key in seen:
+            raise SystemExit(f"Mesma receita em dois arquivos: {seen[key]} e {rel} "
+                             f"(notebook {key}). Apague a cópia antiga.")
+        seen[key] = rel
         items.append({"path": rel, "title": fm.get("title", ""), "sidebar": fm.get("sidebarTitle") or fm.get("title", ""),
-                      "category": fm.get("category"), "number": (fm.get("notebook") or {}).get("number")})
+                      "category": fm.get("category"), "number": nb.get("number")})
     return items
 
 
@@ -195,21 +199,33 @@ def sort_key(item):
     return (title, item["number"] or 0)
 
 
+def sections_with_pages(items):
+    """[(tab, [(section, [páginas ordenadas])])], só com seções e tabs que têm receitas."""
+    out = []
+    for tab in TAXONOMY:
+        secs = []
+        for s in tab["sections"]:
+            pages = sorted((i for i in items if i["category"] == s["key"]), key=sort_key)
+            if pages:
+                secs.append((s, pages))
+        if secs:
+            out.append((tab, secs))
+    return out
+
+
 def write_config(items):
-    path = os.path.join(ROOT, "writedocs.json")
+    path = os.path.join(DOCS, "writedocs.json")
     config = {}
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
             config = json.load(f)
     config.setdefault("$schema", "https://docs.writedocs.io/schema.json")
     config.setdefault("name", "Caderno de receitas")
-    config.setdefault("description", "Receitas transcritas de um caderno manuscrito.")
-    nav = [{"group": "Início", "pages": ["docs/index", "docs/receitas/index"]}]
-    for key, label, _icon in CATEGORIES:
-        pages = sorted((i for i in items if i["category"] == key), key=sort_key)
-        if pages:
-            nav.append({"group": label, "pages": [p["path"] for p in pages]})
-    config["navigation"] = nav
+    tabs = []
+    for tab, secs in sections_with_pages(items):
+        tabs.append({"tab": tab["label"], "icon": tab["icon"],
+                     "pages": [{"group": s["label"], "pages": [p["path"] for p in pages]} for s, pages in secs]})
+    config["navigation"] = {"tabs": tabs}
     with open(path, "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -219,64 +235,22 @@ def write_receitas_index(items):
     lines = [
         "---",
         'title: "Receitas"',
-        'description: "Todas as receitas do caderno, organizadas por categoria."',
+        'description: "Todas as receitas do caderno, organizadas em doces, salgados e bebidas."',
         "---",
         "",
-        "Todas as receitas transcritas do caderno, separadas por categoria. Dentro de cada categoria, "
-        "a navegação lateral lista as receitas em ordem alfabética.",
-        "",
-        "<CardGroup cols={2}>",
-    ]
-    for key, label, icon in CATEGORIES:
-        pages = sorted((i for i in items if i["category"] == key), key=sort_key)
-        if not pages:
-            continue
-        n = len(pages)
-        count = f"{n} receita" if n == 1 else f"{n} receitas"
-        lines += [f'  <Card title="{label}" icon="{icon}" href="/{pages[0]["path"]}">',
-                  f"    {count}", "  </Card>"]
-    lines += ["</CardGroup>", ""]
-    with open(os.path.join(ROOT, "docs", "receitas", "index.mdx"), "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
-
-
-def write_home(items, batch, video_slug):
-    total = len(items)
-    labels = {k: l for k, l, _ in CATEGORIES}
-    lines = [
-        "---",
-        'title: "Caderno de receitas"',
-        'description: "Receitas de família transcritas de um caderno manuscrito, com ingredientes, modo de preparo e dúvidas de leitura."',
-        "slug: /",
-        "---",
-        "",
-        f"Este site reúne as receitas de um caderno manuscrito, transcritas a partir de vídeos do caderno "
-        f"folheado página a página. São {total} receitas até agora.",
-        "",
-        "## Como navegar",
-        "",
-        "- **Por categoria:** a barra lateral agrupa as receitas em bolos, doces, sobremesas geladas, pães e massas, "
-        "salgados e bebidas. A página [Receitas](/docs/receitas/index) mostra quantas há em cada uma.",
-        "- **Por tags:** cada receita tem tags no cabeçalho (tipo de prato, técnica, ingrediente principal, ocasião), "
-        "que ajudam a achar, por exemplo, tudo que leva chocolate ou não vai ao forno.",
-        "- **Número do caderno:** o quadro azul no topo de cada receita mostra o número dela no caderno original.",
-        "",
-        "<Note>",
-        "  As receitas foram transcritas como estão no caderno, sem correções. Quando um trecho não pôde ser lido com "
-        "segurança, a página traz um aviso com o momento do vídeo em que ele aparece.",
-        "</Note>",
-        "",
-        "## Adicionadas por último",
-        "",
-        f"Lote `{video_slug}`:",
+        "Todas as receitas transcritas do caderno, separadas em doces, salgados e bebidas. Cada grupo abre "
+        "numa aba do topo, e a barra lateral lista as receitas de cada seção em ordem alfabética.",
         "",
     ]
-    by_path = {i["path"]: i for i in items}
-    for path in batch:
-        i = by_path[path]
-        lines.append(f"- [{i['title']}](/{path}) · {labels.get(i['category'], i['category'])}")
-    lines.append("")
-    with open(os.path.join(ROOT, "docs", "index.mdx"), "w", encoding="utf-8") as f:
+    for tab, secs in sections_with_pages(items):
+        lines += [f"## {tab['label']}", "", "<CardGroup cols={2}>"]
+        for s, pages in secs:
+            n = len(pages)
+            count = f"{n} receita" if n == 1 else f"{n} receitas"
+            lines += [f'  <Card title="{s["label"]}" icon="{s["icon"]}" href="/{pages[0]["path"]}">',
+                      f"    {count}", "  </Card>"]
+        lines += ["</CardGroup>", ""]
+    with open(os.path.join(DOCS, "receitas", "index.mdx"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
 
 
@@ -326,7 +300,6 @@ def main():
     items = scan_recipes()
     write_config(items)
     write_receitas_index(items)
-    write_home(items, batch, args.video_slug)
     with open(os.path.join(work, "build_report.json"), "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
     print(f"{len(report['written'])} gerados, {len(report['skipped'])} pulados (já existiam de outra origem)")

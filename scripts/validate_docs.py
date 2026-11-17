@@ -9,7 +9,7 @@ Verifica:
 - não há {, } ou < soltos no texto (fora dos componentes conhecidos);
 - o número de avisos de dúvida bate com `doubts` e, se o slug do vídeo for dado,
   com o transcription.json;
-- a navegação do writedocs.json aponta para arquivos que existem.
+- a navegação de docs/writedocs.json (tabs) aponta para arquivos que existem e inclui todas as receitas.
 Sai com código 1 se houver erro.
 """
 import glob
@@ -21,7 +21,7 @@ import sys
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_docs import CATEGORY_KEYS, ROOT, TAGS  # noqa: E402
+from build_docs import CATEGORY_KEYS, DOCS, ROOT, TAGS  # noqa: E402
 
 REQUIRED = ["title", "description", "category", "tags", "status"]
 COMPONENT_LINE = re.compile(
@@ -52,6 +52,8 @@ def main():
             errors.append(f"{rel}: YAML inválido: {e}")
             continue
         body = m.group(2)
+        if "/receitas/" not in rel:
+            continue  # homepage e outras páginas feitas à mão usam JSX livremente
 
         for n, line in enumerate(body.splitlines(), 1):
             if COMPONENT_LINE.match(line):
@@ -59,7 +61,7 @@ def main():
             if re.search(r"[{}<]", line):
                 errors.append(f"{rel}: caractere solto na linha {n} do corpo: {line.strip()[:80]}")
 
-        if "/receitas/" not in rel or rel.endswith("/index.mdx"):
+        if rel.endswith("/index.mdx"):
             continue
         for k in REQUIRED:
             if k not in fm:
@@ -84,12 +86,26 @@ def main():
         if len(str(fm.get("description", ""))) > 160:
             errors.append(f"{rel}: description com {len(fm['description'])} caracteres")
 
-    with open(os.path.join(ROOT, "writedocs.json"), encoding="utf-8") as f:
+    with open(os.path.join(DOCS, "writedocs.json"), encoding="utf-8") as f:
         config = json.load(f)
-    for group in config["navigation"]:
-        for page in group["pages"]:
-            if not os.path.exists(os.path.join(ROOT, page + ".mdx")):
-                errors.append(f"writedocs.json: página inexistente {page}")
+    nav_pages = []
+
+    def walk(items):
+        for it in items:
+            if isinstance(it, str):
+                nav_pages.append(it)
+            elif "pages" in it:
+                walk(it["pages"])
+
+    for tab in config["navigation"]["tabs"]:
+        walk(tab["pages"])
+    for page in nav_pages:
+        if not os.path.exists(os.path.join(DOCS, page + ".mdx")):
+            errors.append(f"writedocs.json: página inexistente {page}")
+    published = {os.path.relpath(p, DOCS).replace("\\", "/")[:-4] for p in files
+                 if "/receitas/" in p.replace("\\", "/") and not p.endswith("index.mdx")}
+    for missing in sorted(published - set(nav_pages)):
+        errors.append(f"writedocs.json: receita fora da navegação {missing}")
 
     for e in errors:
         print("ERRO", e)
