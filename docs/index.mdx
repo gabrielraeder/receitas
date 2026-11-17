@@ -1,140 +1,140 @@
 ---
 title: "Caderno de receitas"
 description: "Receitas de família transcritas de um caderno manuscrito, com ingredientes, modo de preparo e dúvidas de leitura."
-slug: /
 mode: custom
 ---
 
-<div className="rc-landing">
+<div className="mx-auto max-w-5xl px-4 pb-20">
 
-<section className="rc-hero">
-  <h1 className="rc-wordmark">
-    <img className="rc-only-light" src="/images/logo_light.svg" alt="Caderno de receitas" />
-    <img className="rc-only-dark" src="/images/logo_dark.svg" alt="Caderno de receitas" />
+<section className="relative mt-8 mb-14 overflow-hidden rounded-2xl border border-[#ead9c4] bg-[#fbf3e6] bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_31px,#ead9c4_31px,#ead9c4_32px)] py-10 pl-14 pr-6 sm:py-14 sm:pl-16 dark:border-[#3a2e26] dark:bg-[#241c17] dark:bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_31px,#3a2e26_31px,#3a2e26_32px)]">
+  <div className="absolute inset-y-0 left-10 w-0.5 bg-[#c4572e]/50" aria-hidden="true"></div>
+  <h1 className="m-0 leading-none">
+    <img className="block h-20 w-auto max-w-full sm:h-28 dark:hidden" src="/images/logo_light.svg" alt="Caderno de receitas" />
+    <img className="hidden h-20 w-auto max-w-full sm:h-28 dark:block" src="/images/logo_dark.svg" alt="Caderno de receitas" />
   </h1>
-  <p className="rc-kicker">Receitas de família, escritas à mão</p>
-  <p className="rc-lead">
+  <p className="mt-6 mb-2 text-sm font-semibold uppercase tracking-widest text-[#b4502b] dark:text-[#e8875f]">Receitas de família, escritas à mão</p>
+  <p className="m-0 max-w-xl text-lg leading-relaxed text-[#3a2a1f] dark:text-[#f3e6d3]">
     As receitas de um caderno manuscrito, passadas a limpo página por página: ingredientes, modo de preparo e as anotações de quem cozinhou cada uma.
   </p>
-  <div className="rc-actions">
-    <a className="rc-btn rc-btn-primary" href="/docs/receitas/index">Ver todas as receitas</a>
-    <a className="rc-btn" href="#como-navegar">Como navegar</a>
+  <div className="mt-7 flex flex-wrap gap-3">
+    <a className="rounded-full border-2 border-[#b4502b] bg-[#b4502b] px-5 py-2.5 font-semibold text-white no-underline hover:brightness-110 dark:border-[#e8875f] dark:bg-[#e8875f] dark:text-[#1a1411]" href="/receitas/index">Ver todas as receitas</a>
+    <a className="rounded-full border-2 border-[#b4502b] px-5 py-2.5 font-semibold text-[#b4502b] no-underline hover:bg-[#b4502b]/10 dark:border-[#e8875f] dark:text-[#e8875f]" href="#como-navegar">Como navegar</a>
   </div>
-  <ul className="rc-stats">
-    <li><strong>43</strong><span>receitas</span></li>
-    <li><strong>5</strong><span>categorias</span></li>
-    <li><strong>23</strong><span>receitas fáceis</span></li>
+  <ul className="mt-9 flex list-none flex-wrap gap-8 p-0">
+    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">43</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">receitas</span></li>
+    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">5</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">categorias</span></li>
+    <li className="m-0 flex flex-col"><strong className="text-3xl leading-tight text-[#3a2a1f] dark:text-[#f3e6d3]">23</strong><span className="text-sm text-[#6e5a4c] dark:text-[#c2b1a0]">receitas fáceis</span></li>
   </ul>
 </section>
 
-<section className="rc-section">
-  <h2 className="rc-h2">Categorias</h2>
-  <p className="rc-sub">Escolha por onde começar. Dentro de cada categoria, as receitas estão em ordem alfabética.</p>
+<section className="mt-14">
+  <h2 className="mb-1 text-2xl">Categorias</h2>
+  <p className="mt-0 mb-5 text-[#6e5a4c] dark:text-[#c2b1a0]">Escolha por onde começar. Dentro de cada categoria, as receitas estão em ordem alfabética.</p>
 
   <CardGroup cols={3}>
-    <Card title="Bolos" icon="cake" href="/docs/receitas/bolos/bolo-capuccino-sem-gluten">
+    <Card title="Bolos" icon="cake" href="/receitas/bolos/bolo-capuccino-sem-gluten">
       26 receitas
     </Card>
-    <Card title="Doces" icon="candy" href="/docs/receitas/doces/bem-casados">
+    <Card title="Doces" icon="candy" href="/receitas/doces/bem-casados">
       10 receitas
     </Card>
-    <Card title="Sobremesas geladas" icon="ice-cream-cone" href="/docs/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas">
+    <Card title="Sobremesas geladas" icon="ice-cream-cone" href="/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas">
       3 receitas
     </Card>
-    <Card title="Pães e massas" icon="wheat" href="/docs/receitas/paes-e-massas/babka">
+    <Card title="Pães e massas" icon="wheat" href="/receitas/paes-e-massas/babka">
       3 receitas
     </Card>
-    <Card title="Bebidas" icon="cup-soda" href="/docs/receitas/bebidas/po-para-capuccino">
+    <Card title="Bebidas" icon="cup-soda" href="/receitas/bebidas/po-para-capuccino">
       1 receita
     </Card>
-    <Card title="Visão geral" icon="book-open" href="/docs/receitas/index">
+    <Card title="Visão geral" icon="book-open" href="/receitas/index">
       Todas as categorias numa página
     </Card>
   </CardGroup>
 </section>
 
-<section className="rc-section">
-  <h2 className="rc-h2">Adicionadas por último</h2>
-  <p className="rc-sub">Algumas receitas do lote mais recente, o <code>receitas1</code>.</p>
+<section className="mt-14">
+  <h2 className="mb-1 text-2xl">Adicionadas por último</h2>
+  <p className="mt-0 mb-5 text-[#6e5a4c] dark:text-[#c2b1a0]">Algumas receitas do lote mais recente, o <code>receitas1</code>.</p>
 
   <CardGroup cols={3}>
-    <Card title="Bolo de leite Ninho" href="/docs/receitas/bolos/bolo-de-leite-ninho">
+    <Card title="Bolo de leite Ninho" href="/receitas/bolos/bolo-de-leite-ninho">
       Bolo de liquidificador com leite em pó e coco ralado, assado em forma untada.
-      <span className="rc-meta">Fácil · 40 min</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Fácil · 40 min</span>
     </Card>
-    <Card title="Torta de maçã alemã" href="/docs/receitas/doces/torta-de-maca-alema">
+    <Card title="Torta de maçã alemã" href="/receitas/doces/torta-de-maca-alema">
       Torta de camadas de maçã, passas e canela, regada com manteiga e ovos e assada até dourar.
-      <span className="rc-meta">Fácil · 1 h</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Fácil · 1 h</span>
     </Card>
-    <Card title="Bolo red velvet" href="/docs/receitas/bolos/bolo-red-velvet">
+    <Card title="Bolo red velvet" href="/receitas/bolos/bolo-red-velvet">
       Com iogurte, cacau e corante vermelho, recheado com creme de cream cheese e chocolate branco.
-      <span className="rc-meta">Média · 1 h 30 min</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Média · 1 h 30 min</span>
     </Card>
-    <Card title="Pavê trufa de cereja" href="/docs/receitas/sobremesas-geladas/pave-trufa-de-cereja">
+    <Card title="Pavê trufa de cereja" href="/receitas/sobremesas-geladas/pave-trufa-de-cereja">
       Biscoito maisena com creme de baunilha e trufa de chocolate meio amargo com cerejas.
-      <span className="rc-meta">Média · 4 h 40 min</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Média · 4 h 40 min</span>
     </Card>
-    <Card title="Cheesecake japonês" href="/docs/receitas/bolos/cheesecake-japones">
+    <Card title="Cheesecake japonês" href="/receitas/bolos/cheesecake-japones">
       Leve e aerado, com cream cheese, gemas e claras em neve, assado em banho-maria.
-      <span className="rc-meta">Difícil · 1 h 50 min</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Difícil · 1 h 50 min</span>
     </Card>
-    <Card title="Babka" href="/docs/receitas/paes-e-massas/babka">
+    <Card title="Babka" href="/receitas/paes-e-massas/babka">
       Pão doce trançado de massa fermentada, recheado com chocolate e pincelado com calda.
-      <span className="rc-meta">Difícil · 11 h 30 min</span>
+      <span className="mt-2.5 block text-sm font-semibold text-[#b4502b] dark:text-[#e8875f]">Difícil · 11 h 30 min</span>
     </Card>
   </CardGroup>
 
-  <Accordion title="Todas as 43 receitas do lote receitas1">
+  <Accordion title="Todas as 43 receitas do lote receitas1" className="mt-6">
 
-- [Torta de maçã alemã](/docs/receitas/doces/torta-de-maca-alema) · Doces
-- [Bolo de leite Ninho](/docs/receitas/bolos/bolo-de-leite-ninho) · Bolos
-- [Bolo de chocolate sem glúten](/docs/receitas/bolos/bolo-de-chocolate-sem-gluten) · Bolos
-- [Bolo de laranja](/docs/receitas/bolos/bolo-de-laranja) · Bolos
-- [Bolo red velvet](/docs/receitas/bolos/bolo-red-velvet) · Bolos
-- [Bem-casados](/docs/receitas/doces/bem-casados) · Doces
-- [Recheio trufado para bolo](/docs/receitas/doces/recheio-trufado-para-bolo) · Doces
-- [Babka](/docs/receitas/paes-e-massas/babka) · Pães e massas
-- [Cheesecake japonês](/docs/receitas/bolos/cheesecake-japones) · Bolos
-- [Bolo de coco gelado](/docs/receitas/bolos/bolo-de-coco-gelado) · Bolos
-- [Pavê trufa de cereja](/docs/receitas/sobremesas-geladas/pave-trufa-de-cereja) · Sobremesas geladas
-- [Bolo chiffon de tangerina](/docs/receitas/bolos/bolo-chiffon-de-tangerina) · Bolos
-- [Recheio alpino com morango](/docs/receitas/doces/recheio-alpino-com-morango) · Doces
-- [Broa de polvilho doce](/docs/receitas/doces/broa-de-polvilho-doce) · Doces
-- [Bolo capuccino sem glúten](/docs/receitas/bolos/bolo-capuccino-sem-gluten) · Bolos
-- [Bolo de chocolate com laranja sem glúten](/docs/receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten) · Bolos
-- [Pão de maçã e canela](/docs/receitas/paes-e-massas/pao-de-maca-e-canela) · Pães e massas
-- [Bolo de cacau com banana](/docs/receitas/bolos/bolo-de-cacau-com-banana) · Bolos
-- [Bolo francês de maçãs](/docs/receitas/bolos/bolo-frances-de-macas) · Bolos
-- [Bolo capuccino sem glúten](/docs/receitas/bolos/bolo-capuccino-sem-gluten-2) · Bolos
-- [Pão de leite](/docs/receitas/paes-e-massas/pao-de-leite) · Pães e massas
-- [Bolo de ameixa](/docs/receitas/bolos/bolo-de-ameixa) · Bolos
-- [Torta de banana com Ovomaltine](/docs/receitas/doces/torta-de-banana-com-ovomaltine) · Doces
-- [Bolo de frutas](/docs/receitas/bolos/bolo-de-frutas) · Bolos
-- [Bolacha de canela (formato de caracol)](/docs/receitas/doces/bolacha-de-canela-formato-de-caracol) · Doces
-- [Bolo de maçã](/docs/receitas/bolos/bolo-de-maca) · Bolos
-- [Bolo de abobrinha](/docs/receitas/bolos/bolo-de-abobrinha) · Bolos
-- [Bolo diet](/docs/receitas/bolos/bolo-diet) · Bolos
-- [Bolo de araruta](/docs/receitas/bolos/bolo-de-araruta) · Bolos
-- [Bolo nuvem](/docs/receitas/bolos/bolo-nuvem) · Bolos
-- [Pão de ló de chocolate (profissional)](/docs/receitas/bolos/pao-de-lo-de-chocolate-profissional) · Bolos
-- [Bolo de banana para bebê](/docs/receitas/bolos/bolo-de-banana-para-bebe) · Bolos
-- [Pó para capuccino](/docs/receitas/bebidas/po-para-capuccino) · Bebidas
-- [Cheesecake de frutas vermelhas](/docs/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas) · Sobremesas geladas
-- [Rosquinha de queijo](/docs/receitas/doces/rosquinha-de-queijo) · Doces
-- [Bolo queijadinha](/docs/receitas/bolos/bolo-queijadinha) · Bolos
-- [Sobremesa de doce de leite](/docs/receitas/sobremesas-geladas/sobremesa-de-doce-de-leite) · Sobremesas geladas
-- [Brownie](/docs/receitas/doces/brownie) · Doces
-- [Crunch cake](/docs/receitas/bolos/crunch-cake) · Bolos
-- [Cupcake de chocolate](/docs/receitas/bolos/cupcake-de-chocolate) · Bolos
-- [Bolo de cenoura e laranja](/docs/receitas/bolos/bolo-de-cenoura-e-laranja) · Bolos
-- [Bolo toalha felpuda](/docs/receitas/bolos/bolo-toalha-felpuda) · Bolos
-- [Torta pica-pau](/docs/receitas/doces/torta-pica-pau) · Doces
+- [Torta de maçã alemã](/receitas/doces/torta-de-maca-alema) · Doces
+- [Bolo de leite Ninho](/receitas/bolos/bolo-de-leite-ninho) · Bolos
+- [Bolo de chocolate sem glúten](/receitas/bolos/bolo-de-chocolate-sem-gluten) · Bolos
+- [Bolo de laranja](/receitas/bolos/bolo-de-laranja) · Bolos
+- [Bolo red velvet](/receitas/bolos/bolo-red-velvet) · Bolos
+- [Bem-casados](/receitas/doces/bem-casados) · Doces
+- [Recheio trufado para bolo](/receitas/doces/recheio-trufado-para-bolo) · Doces
+- [Babka](/receitas/paes-e-massas/babka) · Pães e massas
+- [Cheesecake japonês](/receitas/bolos/cheesecake-japones) · Bolos
+- [Bolo de coco gelado](/receitas/bolos/bolo-de-coco-gelado) · Bolos
+- [Pavê trufa de cereja](/receitas/sobremesas-geladas/pave-trufa-de-cereja) · Sobremesas geladas
+- [Bolo chiffon de tangerina](/receitas/bolos/bolo-chiffon-de-tangerina) · Bolos
+- [Recheio alpino com morango](/receitas/doces/recheio-alpino-com-morango) · Doces
+- [Broa de polvilho doce](/receitas/doces/broa-de-polvilho-doce) · Doces
+- [Bolo capuccino sem glúten](/receitas/bolos/bolo-capuccino-sem-gluten) · Bolos
+- [Bolo de chocolate com laranja sem glúten](/receitas/bolos/bolo-de-chocolate-com-laranja-sem-gluten) · Bolos
+- [Pão de maçã e canela](/receitas/paes-e-massas/pao-de-maca-e-canela) · Pães e massas
+- [Bolo de cacau com banana](/receitas/bolos/bolo-de-cacau-com-banana) · Bolos
+- [Bolo francês de maçãs](/receitas/bolos/bolo-frances-de-macas) · Bolos
+- [Bolo capuccino sem glúten](/receitas/bolos/bolo-capuccino-sem-gluten-2) · Bolos
+- [Pão de leite](/receitas/paes-e-massas/pao-de-leite) · Pães e massas
+- [Bolo de ameixa](/receitas/bolos/bolo-de-ameixa) · Bolos
+- [Torta de banana com Ovomaltine](/receitas/doces/torta-de-banana-com-ovomaltine) · Doces
+- [Bolo de frutas](/receitas/bolos/bolo-de-frutas) · Bolos
+- [Bolacha de canela (formato de caracol)](/receitas/doces/bolacha-de-canela-formato-de-caracol) · Doces
+- [Bolo de maçã](/receitas/bolos/bolo-de-maca) · Bolos
+- [Bolo de abobrinha](/receitas/bolos/bolo-de-abobrinha) · Bolos
+- [Bolo diet](/receitas/bolos/bolo-diet) · Bolos
+- [Bolo de araruta](/receitas/bolos/bolo-de-araruta) · Bolos
+- [Bolo nuvem](/receitas/bolos/bolo-nuvem) · Bolos
+- [Pão de ló de chocolate (profissional)](/receitas/bolos/pao-de-lo-de-chocolate-profissional) · Bolos
+- [Bolo de banana para bebê](/receitas/bolos/bolo-de-banana-para-bebe) · Bolos
+- [Pó para capuccino](/receitas/bebidas/po-para-capuccino) · Bebidas
+- [Cheesecake de frutas vermelhas](/receitas/sobremesas-geladas/cheesecake-de-frutas-vermelhas) · Sobremesas geladas
+- [Rosquinha de queijo](/receitas/doces/rosquinha-de-queijo) · Doces
+- [Bolo queijadinha](/receitas/bolos/bolo-queijadinha) · Bolos
+- [Sobremesa de doce de leite](/receitas/sobremesas-geladas/sobremesa-de-doce-de-leite) · Sobremesas geladas
+- [Brownie](/receitas/doces/brownie) · Doces
+- [Crunch cake](/receitas/bolos/crunch-cake) · Bolos
+- [Cupcake de chocolate](/receitas/bolos/cupcake-de-chocolate) · Bolos
+- [Bolo de cenoura e laranja](/receitas/bolos/bolo-de-cenoura-e-laranja) · Bolos
+- [Bolo toalha felpuda](/receitas/bolos/bolo-toalha-felpuda) · Bolos
+- [Torta pica-pau](/receitas/doces/torta-pica-pau) · Doces
 
-  </Accordion>
+</Accordion>
 </section>
 
-<section className="rc-section" id="como-navegar">
-  <h2 className="rc-h2">Como navegar</h2>
+<section className="mt-14 scroll-mt-24" id="como-navegar">
+  <h2 className="mb-5 text-2xl">Como navegar</h2>
 
   <CardGroup cols={3}>
     <Card title="Por categoria" icon="folder-open">
@@ -149,9 +149,9 @@ mode: custom
   </CardGroup>
 </section>
 
-<section className="rc-section rc-note">
-  <h2 className="rc-h2">Sobre as transcrições</h2>
-  <p>
+<section className="mt-14 rounded-lg border-l-4 border-[#b4502b] bg-[#fbf3e6] px-7 py-6 dark:border-[#e8875f] dark:bg-[#241c17]">
+  <h2 className="mt-0 mb-2 text-2xl">Sobre as transcrições</h2>
+  <p className="m-0 max-w-3xl leading-relaxed text-[#3a2a1f] dark:text-[#f3e6d3]">
     As receitas foram transcritas como estão no caderno, sem correções de quantidade, temperatura ou tempo. Quando um trecho não pôde ser lido com segurança, a página traz um aviso com o momento do vídeo em que ele aparece.
   </p>
 </section>

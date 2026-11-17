@@ -13,7 +13,7 @@ from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
 
-OUT = Path(__file__).resolve().parent.parent / "images"
+OUT = Path(__file__).resolve().parent.parent / "docs" / "images"
 
 PALETTE = {
     "light": {"cover": "#C4572E", "spine": "#9E4222", "rings": "#4A3326",

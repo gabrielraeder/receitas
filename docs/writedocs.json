@@ -2,6 +2,25 @@
   "$schema": "https://docs.writedocs.io/schema.json",
   "name": "Caderno de receitas",
   "description": "Receitas transcritas de um caderno manuscrito.",
+  "styles": {
+    "logo": {
+      "light": "/images/logo_light.svg",
+      "dark": "/images/logo_dark.svg"
+    },
+    "favicon": "/images/favicon.svg",
+    "colors": {
+      "primary": "#B4502B",
+      "dark": {
+        "primary": "#E8875F"
+      }
+    },
+    "background": {
+      "colors": {
+        "light": "#FFFCF7",
+        "dark": "#17120E"
+      }
+    }
+  },
   "navigation": [
     {
       "group": "Início",
