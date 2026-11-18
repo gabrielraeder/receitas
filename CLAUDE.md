@@ -219,12 +219,12 @@ Uma receita pertence a **uma** categoria; as tags cobrem o resto. A categoria é
 
 ### Massa
 
-- 1 xícara (chá) de açúcar
-- 3/4 de xícara de chocolate em pó
+- [ ] 1 xícara (chá) de açúcar
+- [ ] 3/4 de xícara de chocolate em pó
 
 ### Creme
 
-- ...
+- [ ] ...
 
 ## Modo de preparo
 
@@ -242,7 +242,7 @@ Uma receita pertence a **uma** categoria; as tags cobrem o resto. A categoria é
 
 Regras do conteúdo:
 
-- **Ingredientes:** listas com `-`. Use subtítulos `###` quando o caderno separa partes (base, massa, creme, recheio, cobertura). Itens de finalização (ex.: "manteiga derretida para pincelar") também entram na lista.
+- **Ingredientes:** listas em formato de checklist (`- [ ] 500 g de farinha de trigo`), para o leitor marcar o que já separou. Dicas e outras listas continuam com `-` simples. Use subtítulos `###` quando o caderno separa partes (base, massa, creme, recheio, cobertura). Itens de finalização (ex.: "manteiga derretida para pincelar") também entram na lista.
 - **Preparo:** `<Steps>` com um `<Step>` por etapa lógica. O título da etapa é curto e imperativo; o texto, no imperativo ("Bata", "Leve ao forno").
 - **Dúvidas:** um `<Warning>` por dúvida, no fim da página, citando o texto como foi lido e o timestamp do vídeo.
 - **Receita incompleta:** um `<Warning>` no topo dizendo o que falta, e `status: incomplete`.

@@ -157,7 +157,7 @@ def build_body(r, c, notebook_label="caderno"):
     for group in r["ingredients"]:
         if group.get("section"):
             out += [f"### {mdx_text(group['section'])}", ""]
-        out += [f"- {mdx_text(item)}" for item in group["items"]]
+        out += [f"- [ ] {mdx_text(item)}" for item in group["items"]]  # checklist (GFM task list)
         out.append("")
 
     out += ["## Modo de preparo", ""]
