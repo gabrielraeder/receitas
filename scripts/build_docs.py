@@ -15,6 +15,7 @@ Saídas:
 
 A homepage (docs/index.mdx) é feita à mão e NÃO é tocada por este script.
 Tabs e seções vêm de scripts/taxonomy.json (cada seção = uma categoria/pasta).
+O nome do caderno no quadro <Info> vem de scripts/notebooks.json (por vídeo de origem).
 
 Regra de sobrescrita: um MDX existente só é regravado se o frontmatter dele tiver a
 mesma origem (notebook.source) e o mesmo número (notebook.number). Caso contrário o
@@ -42,9 +43,10 @@ TAGS = {
     "prato-principal", "acompanhamento", "molho", "lanche", "sobremesa",
     "assado", "frito", "cozido", "sem-forno", "gelado", "fermentado", "calda", "claras-em-neve",
     "chocolate", "fruta", "maracuja", "morango", "limao", "coco", "leite-condensado", "iogurte",
-    "queijo", "frango", "carne",
+    "queijo", "frango", "carne", "peixe", "frutos-do-mar",
     "festa", "cafe-da-manha", "lanche-da-tarde", "natal", "rapido",
-    "sem-gluten", "sem-lactose", "vegetariano", "vegano",
+    "sem-gluten", "sem-lactose", "sem-acucar", "vegetariano", "vegano",
+    "maquina-de-pao",
 }
 
 
@@ -98,7 +100,7 @@ def merge_parts(work, pattern):
 
 def build_frontmatter(r, c, slug, source):
     first = r["pages"][0]
-    lines = ["---", f"title: {q(r['title'])}", f"description: {q(c['description'])}"]
+    lines = ["---", f"title: {q(c.get('title') or r['title'])}", f"description: {q(c['description'])}"]
     if c.get("sidebarTitle"):
         lines.append(f"sidebarTitle: {q(c['sidebarTitle'])}")
     lines += [f"category: {c['category']}", f"tags: {qlist(c['tags'])}"]
@@ -128,9 +130,12 @@ def build_frontmatter(r, c, slug, source):
     return "\n".join(lines)
 
 
-def build_body(r, c):
+def build_body(r, c, notebook_label="caderno"):
     out = []
-    info = [f"Receita nº {r['number']} do caderno"]
+    info = [f"Receita nº {r['number']} do {notebook_label}"]
+    if c.get("title") and c["title"] != r["title"]:
+        # título com complemento editorial: mostra como está no caderno
+        info.append(f"no caderno: “{r['title']}”")
     if r.get("yield"):
         info.append(f"rende {r['yield']}")
     if c.get("totalTime"):
@@ -155,10 +160,14 @@ def build_body(r, c):
         out += [f"- {mdx_text(item)}" for item in group["items"]]
         out.append("")
 
-    out += ["## Modo de preparo", "", "<Steps>"]
-    for step in r["steps"]:
-        out += [f"  <Step title={q(step['title'])}>", f"    {mdx_text(step['text'])}", "  </Step>"]
-    out += ["</Steps>", ""]
+    out += ["## Modo de preparo", ""]
+    if r["steps"]:
+        out.append("<Steps>")
+        for step in r["steps"]:
+            out += [f"  <Step title={q(step['title'])}>", f"    {mdx_text(step['text'])}", "  </Step>"]
+        out += ["</Steps>", ""]
+    else:
+        out += ["O caderno não traz o modo de preparo desta receita.", ""]
 
     if r.get("tips"):
         out += ["## Dicas", "", "<Tip>"]
@@ -221,10 +230,24 @@ def write_config(items):
             config = json.load(f)
     config.setdefault("$schema", "https://docs.writedocs.io/schema.json")
     config.setdefault("name", "Caderno de receitas")
-    tabs = []
+    generated = []
     for tab, secs in sections_with_pages(items):
-        tabs.append({"tab": tab["label"], "icon": tab["icon"],
-                     "pages": [{"group": s["label"], "pages": [p["path"] for p in pages]} for s, pages in secs]})
+        generated.append({"tab": tab["label"], "icon": tab["icon"],
+                          "pages": [{"group": s["label"], "pages": [p["path"] for p in pages]} for s, pages in secs]})
+    # Tabs que não vêm da taxonomia (ex.: "Home" com a página index) são manuais:
+    # ficam como estão, na mesma posição. As tabs da taxonomia entram onde estava a primeira delas.
+    taxonomy_labels = {t["label"] for t in TAXONOMY}
+    existing = (config.get("navigation") or {}).get("tabs", []) if isinstance(config.get("navigation"), dict) else []
+    tabs, inserted = [], False
+    for t in existing:
+        if t.get("tab") in taxonomy_labels:
+            if not inserted:
+                tabs.extend(generated)
+                inserted = True
+        else:
+            tabs.append(t)
+    if not inserted:
+        tabs.extend(generated)
     config["navigation"] = {"tabs": tabs}
     with open(path, "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=2)
@@ -265,6 +288,11 @@ def main():
     work = os.path.join(ROOT, "work", args.video_slug)
 
     recipes, parts = merge_parts(work, args.parts)
+    notebooks_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "notebooks.json")
+    notebook_label = "caderno"
+    if os.path.exists(notebooks_path):
+        with open(notebooks_path, encoding="utf-8") as f:
+            notebook_label = json.load(f).get(source, "caderno")
     with open(os.path.join(work, "classification.json"), encoding="utf-8") as f:
         classification = json.load(f)
 
@@ -277,7 +305,7 @@ def main():
         bad = [t for t in c["tags"] if t not in TAGS]
         if bad or c["category"] not in CATEGORY_KEYS:
             raise SystemExit(f"Receita {r['number']}: tag/categoria fora do vocabulário: {bad or c['category']}")
-        slug = c.get("slug") or slugify(r["title"])
+        slug = c.get("slug") or slugify(c.get("title") or r["title"])
         if slug in used:
             report["slugCollisions"].append({"slug": slug, "numbers": [used[slug], r["number"]]})
             raise SystemExit(f"Slug repetido no lote: {slug} (receitas {used[slug]} e {r['number']}). "
@@ -292,7 +320,7 @@ def main():
                 continue
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
-            f.write(build_frontmatter(r, c, slug, source) + "\n\n" + build_body(r, c))
+            f.write(build_frontmatter(r, c, slug, source) + "\n\n" + build_body(r, c, notebook_label))
         report["written"].append({"number": r["number"], "file": rel + ".mdx", "status": r["status"],
                                   "doubts": len(r["doubts"])})
         batch.append(rel)

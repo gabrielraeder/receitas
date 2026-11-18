@@ -270,7 +270,7 @@ Estas receitas têm trecho que afeta quantidade, tempo ou temperatura e não foi
 
 Nenhuma tag foi criada. Propostas para o vocabulário controlado:
 
-- **`sem-acucar`** (ou `diet`): receitas 24, 27, 28, 32 e 41 usam xilitol, só fruta ou nenhum açúcar, e uma se chama "Bolo diet". Hoje não há tag para isso.
+- **`sem-acucar`** (criada no lote `receitas2`, com autorização): aplicada às receitas 27, 28, 32 e 41. A 24 ficou sem a tag, porque aceita açúcar demerara como opção.
 - **Uso de `sem-gluten`:** o caderno diz "sem glúten" no título das receitas 3, 15, 16 e 20, e as receitas 14 (polvilho) e 29 (araruta) também não levam trigo. A tag **não** foi aplicada a nenhuma delas porque todas têm ingrediente processado com risco de glúten (fermento em pó, cacau, chocolate, aveia, margarina), como manda a regra do `CLAUDE.md`. Se a regra puder aceitar "o caderno declara sem glúten", seis receitas ganham a tag.
 - **Seções (atualização):** a navegação passou a usar tabs (Doces, Salgados, Bebidas) com seções por tipo, definidas em `scripts/taxonomy.json`. As tortas (1, 23, 43) foram para `tortas-doces`, os recheios (7, 13) para `recheios-e-coberturas`, e as propostas de categoria para tortas e de tag `recheio` deixaram de ser necessárias. O Pão de leite (21) ficou em Salgados > Pães e massas; babka e pão de maçã e canela, em Doces > Pães doces.
 

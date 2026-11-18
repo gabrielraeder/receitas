@@ -31,6 +31,114 @@
         ]
       },
       {
+        "tab": "Salgados",
+        "icon": "utensils",
+        "pages": [
+          {
+            "group": "Pães e massas",
+            "pages": [
+              "receitas/paes-e-massas/caracol-de-queijo-e-presunto",
+              "receitas/paes-e-massas/panqueca",
+              "receitas/paes-e-massas/pao-australiano-com-cafe-e-melado",
+              "receitas/paes-e-massas/pao-australiano-com-mel",
+              "receitas/paes-e-massas/pao-australiano-na-maquina-de-pao",
+              "receitas/paes-e-massas/pao-caseiro",
+              "receitas/paes-e-massas/pao-de-batata",
+              "receitas/paes-e-massas/pao-de-cenoura-cozida",
+              "receitas/paes-e-massas/pao-de-cenoura-recheado-com-frango",
+              "receitas/paes-e-massas/pao-de-leite",
+              "receitas/paes-e-massas/pao-de-linguica",
+              "receitas/paes-e-massas/pao-de-liquidificador",
+              "receitas/paes-e-massas/pao-de-manteiga",
+              "receitas/paes-e-massas/pao-de-queijo-bel",
+              "receitas/paes-e-massas/pao-integral",
+              "receitas/paes-e-massas/pao-italiano",
+              "receitas/paes-e-massas/pao-sanduiche-para-maquina-de-pao",
+              "receitas/paes-e-massas/paozinho-recheado",
+              "receitas/paes-e-massas/tranca-de-alho"
+            ]
+          },
+          {
+            "group": "Salgadinhos e lanches",
+            "pages": [
+              "receitas/salgadinhos/aneis-de-cebola",
+              "receitas/salgadinhos/bolinha-de-queijo",
+              "receitas/salgadinhos/bolinho-de-bacalhau-com-batata",
+              "receitas/salgadinhos/bolinho-de-bacalhau-com-claras-em-neve",
+              "receitas/salgadinhos/bolinho-de-bacalhau-enformado",
+              "receitas/salgadinhos/bolo-de-queijo",
+              "receitas/salgadinhos/bruschetta",
+              "receitas/salgadinhos/calzone",
+              "receitas/salgadinhos/croquete-de-frango",
+              "receitas/salgadinhos/pizza-de-batedeira",
+              "receitas/salgadinhos/rosca-de-polvilho",
+              "receitas/salgadinhos/sardinha-magica"
+            ]
+          },
+          {
+            "group": "Tortas salgadas",
+            "pages": [
+              "receitas/tortas-salgadas/massa-de-torta",
+              "receitas/tortas-salgadas/quiche-de-pao",
+              "receitas/tortas-salgadas/quiche-leve",
+              "receitas/tortas-salgadas/torta-cremosa-de-bacalhau",
+              "receitas/tortas-salgadas/torta-de-milho-verde"
+            ]
+          },
+          {
+            "group": "Pratos principais",
+            "pages": [
+              "receitas/pratos-principais/arroz-escondidinho",
+              "receitas/pratos-principais/camarao-ao-bafo",
+              "receitas/pratos-principais/carne-com-cobertura-crocante",
+              "receitas/pratos-principais/espaguete-ao-molho-de-laranja-e-atum",
+              "receitas/pratos-principais/feijao-tropeiro",
+              "receitas/pratos-principais/fondue-de-queijo",
+              "receitas/pratos-principais/frango-ao-forno",
+              "receitas/pratos-principais/frango-com-grao-de-bico",
+              "receitas/pratos-principais/gratinado-de-frango-e-queijo",
+              "receitas/pratos-principais/hamburguer",
+              "receitas/pratos-principais/macarrao-de-forno",
+              "receitas/pratos-principais/pave-aos-4-queijos",
+              "receitas/pratos-principais/risoto-al-gorgonzola-e-pera",
+              "receitas/pratos-principais/risoto-de-figado-de-frango",
+              "receitas/pratos-principais/risoto-de-presunto-cru",
+              "receitas/pratos-principais/sufle-de-queijo",
+              "receitas/pratos-principais/talharim-ao-forno"
+            ]
+          },
+          {
+            "group": "Acompanhamentos",
+            "pages": [
+              "receitas/acompanhamentos/creme-de-milho"
+            ]
+          },
+          {
+            "group": "Saladas",
+            "pages": [
+              "receitas/saladas/caesar-salad",
+              "receitas/saladas/salada-com-catupiry"
+            ]
+          },
+          {
+            "group": "Sopas e caldos",
+            "pages": [
+              "receitas/sopas/sopa-para-emagrecer"
+            ]
+          },
+          {
+            "group": "Molhos e antepastos",
+            "pages": [
+              "receitas/molhos-e-antepastos/berinjelas",
+              "receitas/molhos-e-antepastos/maionese-de-soja",
+              "receitas/molhos-e-antepastos/molho-caesar",
+              "receitas/molhos-e-antepastos/requeijao",
+              "receitas/molhos-e-antepastos/tomates-secos"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Doces",
         "icon": "cake-slice",
         "pages": [
@@ -108,18 +216,6 @@
             "pages": [
               "receitas/recheios-e-coberturas/recheio-alpino-com-morango",
               "receitas/recheios-e-coberturas/recheio-trufado-para-bolo"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Salgados",
-        "icon": "utensils",
-        "pages": [
-          {
-            "group": "Pães e massas",
-            "pages": [
-              "receitas/paes-e-massas/pao-de-leite"
             ]
           }
         ]

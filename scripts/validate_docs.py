@@ -1,7 +1,7 @@
 """Confere os MDX gerados contra o checklist do CLAUDE.md.
 
 Uso:
-    python scripts/validate_docs.py [<video-slug>]
+    python scripts/validate_docs.py [<video-slug> [videos/<arquivo>.mp4]]
 
 Verifica:
 - frontmatter faz parse (YAML) e tem os campos obrigatórios;
@@ -33,7 +33,10 @@ def main():
     errors = []
     slug = sys.argv[1] if len(sys.argv) > 1 else None
     expected = {}
+    source = None
     if slug:
+        # cada vídeo pode ser um caderno diferente, com numeração própria: compara por (origem, número)
+        source = sys.argv[2] if len(sys.argv) > 2 else f"videos/{slug}.mp4"
         with open(os.path.join(ROOT, "work", slug, "transcription.json"), encoding="utf-8") as f:
             expected = {r["number"]: len(r["doubts"]) for r in json.load(f)}
 
@@ -80,8 +83,9 @@ def main():
         warnings = body.count("**Trecho com dúvida:**")
         if warnings != fm.get("doubts"):
             errors.append(f"{rel}: doubts={fm.get('doubts')} mas há {warnings} avisos de dúvida")
-        number = (fm.get("notebook") or {}).get("number")
-        if expected and number in expected and expected[number] != warnings:
+        nb = fm.get("notebook") or {}
+        number = nb.get("number")
+        if expected and nb.get("source") == source and number in expected and expected[number] != warnings:
             errors.append(f"{rel}: transcription.json tem {expected[number]} dúvidas, a página tem {warnings}")
         if len(str(fm.get("description", ""))) > 160:
             errors.append(f"{rel}: description com {len(fm['description'])} caracteres")

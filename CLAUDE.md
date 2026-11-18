@@ -85,18 +85,20 @@ Salve o resultado bruto em `work/<slug>/transcription.json` antes de gerar o MDX
 
 ### 4. Classificar
 
-Para cada receita, defina a categoria (pasta), as tags e os metadados do frontmatter (ver abaixo). Use **somente** as tags do vocabulário controlado. Se nenhuma servir, proponha uma nova no relatório de revisão em vez de criá-la por conta própria.
+Para cada receita, defina a categoria (pasta), as tags e os metadados do frontmatter (ver abaixo). Use as tags do vocabulário controlado. Se nenhuma servir, **crie a tag** (autorizado): acrescente-a à tabela abaixo e ao conjunto `TAGS` de `scripts/build_docs.py`, aplique-a a todas as receitas já publicadas em que ela se encaixa e registre a criação no relatório de revisão.
 
 ### 5. Gerar os arquivos MDX
 
 - Caminho: `docs/receitas/<categoria>/<slug>.mdx`. O slug é o título em minúsculas, sem acento e com hífens (`bolo-gelado-de-maracuja`).
 - Se o slug já existir (receita repetida em outro vídeo), **não sobrescreva**: compare as versões e registre no relatório.
-- Receita repetida **no mesmo caderno** (ex.: nº 15 e nº 20): publique as duas com slug `-2` e o número no `sidebarTitle`, e registre a comparação no relatório.
+- Receita repetida **no mesmo caderno**:
+  - **Mesma receita** (ex.: caderno 1, nº 15 e nº 20): publique as duas com slug `-2` e o número no `sidebarTitle`, e registre a comparação no relatório.
+  - **Receitas diferentes com o mesmo título** (ex.: caderno 2, pão de cenoura nº 9 e nº 17): dê a cada uma um **complemento** que as diferencie, como "Pão de cenoura recheado com frango" e "Pão de cenoura cozida". O complemento vai no campo `title` da classificação; a transcrição mantém o título do caderno. O slug sai do título com complemento, e o quadro `<Info>` mostra o título original ("no caderno: …").
 - Siga o template da seção "Template MDX".
 
 ### 6. Atualizar a navegação e os índices
 
-- A navegação de `docs/writedocs.json` usa **tabs** (Doces, Salgados, Bebidas) e, dentro de cada tab, um grupo por **seção** (= categoria), com as receitas em ordem alfabética. Tabs e seções vêm de `scripts/taxonomy.json`; seção ou tab sem receitas não aparece.
+- A navegação de `docs/writedocs.json` usa **tabs** (Home, Salgados, Doces, Bebidas, nesta ordem) e, dentro de cada tab, um grupo por **seção** (= categoria), com as receitas em ordem alfabética. Tabs e seções vêm de `scripts/taxonomy.json`; seção ou tab sem receitas não aparece.
 - Atualize `docs/receitas/index.mdx` (um `## <tab>` por tab e um `<CardGroup cols={2}>` com um card por seção e a contagem).
 - A homepage `docs/index.mdx` é feita à mão: quando entrar seção nova ou mudar a contagem, atualize os cards e os números dela manualmente (e confira que todo `href` aponta para um arquivo que existe).
 - Se houver páginas de tag em `docs/tags/`, atualize as listas.
@@ -167,13 +169,17 @@ Regras:
 | Tipo              | `doce`, `salgado`, `bebida`                                                                                                                                      |
 | Prato             | `bolo`, `torta`, `pudim`, `mousse`, `sorvete`, `pao`, `biscoito`, `massa`, `sopa`, `salada`, `prato-principal`, `acompanhamento`, `molho`, `lanche`, `sobremesa` |
 | Técnica           | `assado`, `frito`, `cozido`, `sem-forno`, `gelado`, `fermentado`, `calda`, `claras-em-neve`                                                                      |
-| Ingrediente-chave | `chocolate`, `fruta`, `maracuja`, `morango`, `limao`, `coco`, `leite-condensado`, `iogurte`, `queijo`, `frango`, `carne`                                         |
+| Ingrediente-chave | `chocolate`, `fruta`, `maracuja`, `morango`, `limao`, `coco`, `leite-condensado`, `iogurte`, `queijo`, `frango`, `carne`, `peixe`, `frutos-do-mar`              |
 | Ocasião           | `festa`, `cafe-da-manha`, `lanche-da-tarde`, `natal`, `rapido`                                                                                                   |
-| Restrição         | `sem-gluten`, `sem-lactose`, `vegetariano`, `vegano`                                                                                                             |
+| Restrição         | `sem-gluten`, `sem-lactose`, `sem-acucar`, `vegetariano`, `vegano`                                                                                               |
+| Equipamento       | `maquina-de-pao`                                                                                                                                                 |
 
 - Use de 3 a 8 tags por receita.
 - Tags de **restrição** só quando for inequívoco pelos ingredientes. Se houver ingrediente processado com dúvida (ex.: chocolate em pó com glúten), não use a tag.
 - `rapido` = tempo total até 30 min.
+- `peixe` = peixe em qualquer forma, inclusive bacalhau, atum, sardinha e anchova (também em molho); `frutos-do-mar` = camarão, lula, mexilhão etc.
+- `sem-acucar` = sem açúcar adicionado (adoçante como xilitol, ou só o doce das frutas). Receita que dá açúcar como opção não leva a tag.
+- `maquina-de-pao` = receita feita na máquina de pão.
 
 ### Categorias (seções) e tabs
 
@@ -181,12 +187,17 @@ Uma receita pertence a **uma** categoria; as tags cobrem o resto. A categoria é
 
 | Tab      | Categorias (pastas)                                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Salgados | `paes-e-massas`, `salgadinhos`, `tortas-salgadas`, `pratos-principais`, `acompanhamentos`, `saladas`, `sopas`, `molhos-e-antepastos` |
 | Doces    | `bolos`, `tortas-doces`, `sobremesas-geladas`, `biscoitos`, `docinhos`, `paes-doces`, `recheios-e-coberturas`             |
-| Salgados | `paes-e-massas`, `salgadinhos`, `tortas-salgadas`, `pratos-principais`, `acompanhamentos`                                 |
 | Bebidas  | `bebidas-quentes`, `bebidas-frias`                                                                                        |
 
-- A fonte de verdade é `scripts/taxonomy.json` (rótulos e ícones). Para criar uma categoria nova, acrescente lá **e** nesta tabela, e proponha no relatório.
-- Critérios: brownie e bem-casados → `docinhos`; pães de massa doce (babka, pão de maçã e canela) → `paes-doces`; pão comum (pão de leite) → `paes-e-massas`; recheios e coberturas avulsos → `recheios-e-coberturas`; misturas para bebida (pó para capuccino) → `bebidas-quentes`; bolo servido gelado continua em `bolos`.
+- A fonte de verdade é `scripts/taxonomy.json` (rótulos, ícones e a ordem das tabs e seções). Para criar uma categoria nova, acrescente lá **e** nesta tabela, e proponha no relatório.
+- Critérios: brownie e bem-casados → `docinhos`; pães de massa doce (babka, pão de maçã e canela) → `paes-doces`; pão comum (pão de leite) → `paes-e-massas`; recheios e coberturas avulsos → `recheios-e-coberturas`; misturas para bebida (pó para capuccino) → `bebidas-quentes`; bolo servido gelado continua em `bolos`. Do lote 2:
+  - Pães salgados ou neutros (pão de queijo, pão australiano, pão italiano) e massas-base (panqueca) → `paes-e-massas`.
+  - Bolinhos, calzone, pizza, anéis de cebola, bruschetta e tortas frias de pão (bolo de queijo, sardinha mágica) → `salgadinhos`.
+  - Quiches e massa de torta salgada → `tortas-salgadas`.
+  - Risotos, gratinados, massas de forno e carnes → `pratos-principais`.
+  - Preparos para acompanhar ou conservar (requeijão caseiro, maionese, molhos, tomates secos, antepasto de berinjela) → `molhos-e-antepastos`.
 - Mudar a categoria de uma receita publicada muda a URL: mova com `git mv`, atualize a classificação e os links da homepage.
 
 ---
@@ -245,7 +256,7 @@ Regras do conteúdo:
 
 `docs/index.mdx`: homepage estilizada (`mode: custom`, Tailwind), feita à mão: apresentação do caderno, um bloco de cards por tab (uma card por seção, com contagem) e como as receitas estão organizadas. Sem lista de "adicionadas por último" nem menção a lotes. Nunca gere nem sobrescreva por script.
 
-Nem `index.mdx` nem `receitas/index.mdx` entram na navegação: com tabs, o schema do WriteDocs não aceita páginas soltas fora delas. As duas continuam acessíveis por `/` e `/receitas`.
+Com tabs, o schema do WriteDocs não aceita páginas soltas fora delas. A homepage fica numa tab manual **"Home"** (`{"tab": "Home", "icon": "house", "pages": ["index"]}`), a primeira do `writedocs.json`. O `build_docs.py` preserva qualquer tab que não venha da taxonomia, na mesma posição; não a remova. `receitas/index.mdx` fica fora da navegação e é acessível por `/receitas`.
 
 ---
 
@@ -260,10 +271,14 @@ Nem `index.mdx` nem `receitas/index.mdx` entram na navegação: com tabs, o sche
 
 ## Notas para os próximos lotes
 
-Aprendizados do lote `receitas1` (43 receitas, 34 páginas duplas):
+Aprendizados dos lotes `receitas1` (43 receitas, 34 páginas duplas) e `receitas2` (61 receitas, 40 páginas duplas):
 
 - **ffmpeg:** não está instalado no sistema. Use o binário do pacote Python `imageio-ffmpeg` (`python -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"`) e o OpenCV (`cv2`), que já está instalado. Não há `ffprobe`: `ffmpeg -i <video>` mostra duração e resolução.
-- **Formato dos vídeos:** 478×850, retrato, caderno deitado na metade de cima. Recorte `crop=478:500:0:0` e gire com `transpose=2`. A letra só fica confiável em recortes ampliados 3× ou mais.
+- **Formato dos vídeos:** 478×850, retrato, caderno deitado na parte de cima. Gire com `transpose=2`. A letra só fica confiável em recortes ampliados 3× ou mais.
+  - **A altura do recorte muda de vídeo para vídeo:** 500 px no `receitas1`, 560 px no `receitas2`. Antes das contact sheets, extraia um quadro cru (sem crop) e veja até onde vai o caderno.
+  - Passe a altura certa em `--crop-h` para todos os scripts e no brief dos agentes.
+- **Cada vídeo pode ser um caderno diferente,** com numeração própria (o `receitas2` recomeça do 1). Ao começar um lote, acrescente o vídeo em `scripts/notebooks.json` ("caderno N", ou o mesmo nome se for continuação de um caderno já visto). Esse nome aparece no quadro do topo das receitas ("Receita nº 3 do caderno 2"). Os scripts comparam receitas por origem + número.
+- **Títulos repetidos dentro do caderno** podem ser receitas **diferentes** (lote 2: pão de cenoura, bolinho de bacalhau, pão australiano). Use complemento no título, conforme o passo 5, e descreva a diferença no relatório.
 - **Localizar páginas:** a detecção de cena do ffmpeg não acha nenhuma virada (câmera fixa, virada lenta). `scripts/find_pages.py` (por movimento) perde páginas com a mão por cima e junta páginas parecidas. Monte sempre o mapa à mão com contact sheets **giradas** (1 quadro/s, `crop` + `transpose=2` + `tile`) e anote o intervalo estável de cada página dupla.
 - **Scripts** (rodar da raiz do projeto):
   - `extract_frames.py <video> <dir> <t...> [--region x0,y0,x1,y1 --scale 3 --prefix rNN_x]`: quadros e recortes girados.
@@ -272,5 +287,7 @@ Aprendizados do lote `receitas1` (43 receitas, 34 páginas duplas):
   - `validate_docs.py <slug>`: checklist do passo 7.
   - `review_tables.py <slug>`: tabela e lista de dúvidas do relatório.
 - **Transcrição em paralelo:** dividir as páginas duplas em blocos contíguos para subagentes funcionou bem, usando `work/<slug>/TRANSCRIPTION_BRIEF.md` como instrução comum (regras, ferramentas e formato JSON). Confira algumas receitas de cada bloco contra os recortes.
-- **Aviso de receita incompleta:** o texto vem de `incompleteNote` na classificação, escrito para o leitor. Nunca use o campo `notes` da transcrição, que é nota interna.
+- **Aviso de receita incompleta:** o texto vem de `incompleteNote` na classificação, escrito para o leitor. Nunca use o campo `notes` da transcrição, que é nota interna. Receita sem nenhum passo de preparo sai com a frase "O caderno não traz o modo de preparo desta receita." no lugar dos `<Steps>`.
+- **Campos sem resposta no caderno:** se o caderno não permite afirmar se a receita vai ao forno (ex.: receita incompleta), use `"oven": null` na classificação. O campo é omitido do frontmatter.
+- **Homepage depois de cada lote:** atualize à mão as contagens, o número de seções e de cadernos e os cards de seções novas. Confira os `href`.
 - **Build do WriteDocs:** `npx @writedocs/generator validate` ainda não foi rodado neste projeto (bloqueado pela política de permissões da sessão). Pendente confirmar se as chaves próprias do frontmatter (`tags`, `notebook`, `mainIngredients` etc.) passam na validação.

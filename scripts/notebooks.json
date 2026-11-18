@@ -1,0 +1,5 @@
+{
+  "_comment": "Nome de cada caderno físico, por vídeo de origem. Usado no quadro <Info> do topo das receitas ('Receita nº 3 do caderno 2'). Vídeos do mesmo caderno usam o mesmo nome.",
+  "videos/receitas1.mp4": "caderno 1",
+  "videos/receitas2.mp4": "caderno 2"
+}
